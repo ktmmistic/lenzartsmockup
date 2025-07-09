@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact Us - Lenz Arts</title>
+
+<style>
+  /* Base Styles */
+  :root {
+    --color-bg-light: #fff;
+    --color-text-light: #222;
+    --color-bg-dark: #121212;
+    --color-text-dark: #ddd;
+    --color-accent: #0066cc;
+    --color-accent-dark: #3399ff;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-bg-light);
+    color: var(--color-text-light);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  body.dark-mode {
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-dark);
+  }
+
+  h1, h2 {
+    margin-bottom: 0.5em;
+    font-weight: 700;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    margin-top: 1.5em;
+    margin-bottom: 0.75em;
+  }
+
+  p, a, li {
+    font-size: 1rem;
+  }
+
+  a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  body.dark-mode a {
+    color: var(--color-accent-dark);
+  }
+
+  a:hover,
+  a:focus {
+    text-decoration: underline;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+  }
+
+  /* Sections */
+  section {
+    margin-bottom: 2.5rem;
+  }
+
+  /* Phone numbers styling */
+  .phone-list, .email-list, .hours-list, .address, .holidays-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .phone-list li, .email-list li, .hours-list li, .holidays-list li {
+    margin-bottom: 0.5rem;
+  }
+
+  /* Map container */
+  .map-container {
+    width: 100%;
+    height: 350px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  body.dark-mode .map-container {
+    border-color: #444;
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  /* Dark Mode Toggle Button */
+  .toggle-btn {
+    background-color: var(--color-accent);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+  }
+
+  .toggle-btn:hover {
+    background-color: #004999;
+  }
+
+  body.dark-mode .toggle-btn {
+    background-color: var(--color-accent-dark);
+  }
+
+  /* Responsive Layout */
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+    }
+  }
+</style>
+</head>
+
+<body>
+<button class="toggle-btn" aria-label="Toggle Dark Mode">Dark Mode</button>
+
+<div class="container">
+  <header>
+    <h1>Contact Us</h1>
+  </header>
+
+  <section>
+    <h2>Phone Numbers</h2>
+    <ul class="phone-list">
+      <li>Sales/Information: <a href="tel:+18312817637">(831) 281-7637</a></li>
+      <li>Frameshop: <a href="tel:+18314257111">(831) 425-7111</a></li>
+      <li>Office: <a href="tel:+18314266823">(831) 426-6823</a></li>
+      <li>Fax: (831) 423-6840 - No unsolicited ads accepted.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Email</h2>
+    <ul class="email-list">
+      <li>For art materials and general inquiries: <a href="mailto:staff@lenzarts.com">staff@lenzarts.com</a></li>
+      <li>For picture framing inquiries: <a href="mailto:framing@lenzarts.com">framing@lenzarts.com</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Address</h2>
+    <address class="address">
+      142 River Street<br />
+      Santa Cruz, California 95060-2749
+    </address>
+  </section>
+
+  <section>
+    <h2>Hours</h2>
+    <ul class="hours-list">
+      <li>Monday - Saturday: 10:00 a.m. - 6:00 p.m. (Pacific Time)</li>
+      <li>Sunday: Closed</li>
+    </ul>
+    <p><strong>Holiday Closures and Special Hours</strong></p>
+    <ul class="holidays-list">
+      <li>New Year’s Day</li>
+      <li>Presidents' Day</li>
+      <li>Memorial Day</li>
+      <li>Independence Day (July 4)</li>
+      <li>Labor Day</li>
+      <li>Thanksgiving Day</li>
+      <li>Christmas Day</li>
+      <li>Boxing Day (December 26)</li>
+    </ul>
+    <p>Please note: We close early on both Christmas Eve and New Year’s Eve.</p>
+    <p>For any temporary changes to our regular hours, please refer to the homepage for the most up-to-date information.</p>
+  </section>
+
+  <section>
+    <h2>Map</h2>
+    <p>We are located at 142 River Street on the corner of North Pacific and River Street in beautiful Santa Cruz, California.<br />
+    Free on-site parking!</p>
+    <div class="map-container" aria-label="Map showing location of Lenz Arts">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3148.669942216648!2d-122.02679398467951!3d36.97411777993643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fcca22218dbf1%3A0x67b1362c5a00af52!2s142%20River%20St%2C%20Santa%20Cruz%2C%20CA%2095060!5e0!3m2!1sen!2sus!4v1688380918547!5m2!1sen!2sus"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Lenz Arts Location Map"
+      ></iframe>
+    </div>
+  </section>
+</div>
+
+<script>
+  const toggleBtn = document.querySelector('.toggle-btn');
+  const body = document.body;
+
+  // Load saved mode preference if any
+  if (localStorage.getItem('darkMode') === 'enabled') {
+    body.classList.add('dark-mode');
+    toggleBtn.textContent = 'Light Mode';
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    if (body.classList.contains('dark-mode')) {
+      toggleBtn.textContent = 'Light Mode';
+      localStorage.setItem('darkMode', 'enabled');
+    } else {
+      toggleBtn.textContent = 'Dark Mode';
+      localStorage.setItem('darkMode', 'disabled');
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lenz Arts History</title>
+  <style>
+    /* CSS Variables for Light and Dark Themes */
+    :root {
+      --bg-light: #fff;
+      --text-light: #333;
+      --link-light: #0066cc;
+      
+      --bg-dark: #121212;
+      --text-dark: #ddd;
+      --link-dark: #3399ff;
+      
+      --max-width: 900px;
+      --padding: 2rem;
+    }
+
+    /* Base Styles */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: var(--padding);
+      max-width: var(--max-width);
+      margin-left: auto;
+      margin-right: auto;
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    body.dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+      color: var(--text-light);
+      transition: color 0.3s ease;
+    }
+    body.dark-mode h1,
+    body.dark-mode h2,
+    body.dark-mode h3 {
+      color: var(--text-dark);
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    article {
+      margin-top: 1.5rem;
+    }
+
+    .news-entry {
+      margin-bottom: 1.5rem;
+    }
+
+    em {
+      display: block;
+      font-style: italic;
+      margin-top: 0.25rem;
+      color: #666;
+      transition: color 0.3s ease;
+    }
+    body.dark-mode em {
+      color: #aaa;
+    }
+
+    strong {
+      display: block;
+      margin-top: 0.5rem;
+    }
+
+    a {
+      color: var(--link-light);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover,
+    a:focus {
+      text-decoration: underline;
+    }
+    body.dark-mode a {
+      color: var(--link-dark);
+    }
+
+    /* Dark Mode Toggle Button */
+    .toggle-btn {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background-color: var(--link-light);
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1000;
+      transition: background-color 0.3s ease;
+    }
+    .toggle-btn:hover,
+    .toggle-btn:focus {
+      background-color: #004999;
+      outline: none;
+    }
+    body.dark-mode .toggle-btn {
+      background-color: var(--link-dark);
+    }
+
+    /* Responsive typography */
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+      h1 {
+        font-size: 1.75rem;
+      }
+      h2 {
+        font-size: 1.25rem;
+      }
+      h3 {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<button class="toggle-btn" aria-label="Toggle Dark Mode">Dark Mode</button>
+
+<section id="history">
+  <h1>A Little History</h1>
+  <h2>It all started with two artists, a shared dream, and a leap of faith.</h2>
+
+  <p>Back in college, Andy and Cynthia Lenz met through their love of art, fell in love with each other, and eventually got married. With art degrees in hand, they moved to the coastal town of Santa Cruz—a place close to Cynthia’s family and full of creative energy.</p>
+
+  <p>While Andy was pursuing his Master’s in Art, he ran into a problem: it was tough to find the quality art supplies he needed. Instead of waiting for a solution, he and Cynthia decided to create one. On August 1, 1968, they took a bold leap and opened Lenz Arts—first from their apartment, and a few months later, in a tiny 900-square-foot storefront (with a loft!) on Pacific Avenue, right at the edge of the old Pacific Garden Mall.</p>
+
+  <p>As the local art scene blossomed, so did the store. On July 6, 1972, Lenz Arts moved into its current home at 142 River Street, a spacious 10,000-square-foot building that once served as a community cold-storage facility—perfect for stocking even more supplies to fuel artists’ imaginations.</p>
+
+  <p>In 1976, Lenz Arts officially became incorporated, and the family business continued to grow—literally. In 1979, a young Andrew Jr., not yet a teen, cut his first picture framing mat under the guidance of his uncle Jerry, the head framer at the time.</p>
+
+  <p>Andrew Jr. later graduated from UCSC and took on the role of store manager in 1989. A true materials enthusiast, he’s spent decades geeking out with paint manufacturers, chemists, and even researchers from the Smithsonian to answer the most niche (and fascinating!) questions from customers and fellow artists.</p>
+
+  <p>In 1991, the Lenz family added a warehouse to support their ever-expanding frame inventory, which freed up even more floor space in the store—because, really, who doesn’t want room for more art supplies?</p>
+
+  <p>Today, Lenz Arts remains proudly family-run. Andy officially retired in 2016, and Cynthia gradually stepped back around the same time. Now, Andrew Jr. runs the day-to-day operations alongside his brother Matthew and a passionate crew of nearly two dozen artists and creatives.</p>
+
+  <p>That same year, Andy and Cynthia were honored in Houston, Texas with the International Art Materials Association's Lifetime Achievement Award—a fitting tribute to their dedication, creativity, and impact on the fine art materials world.</p>
+
+  <p><strong>From our family to yours, thank you for making Lenz Arts a part of your creative life.</strong></p>
+
+  <p><em>We’re here to help artists of all kinds make, imagine, and explore—just like we’ve done since day one.</em></p>
+</section>
+
+<section id="news">
+  <h1>Lenz Arts in the News</h1>
+  <h2>Stories of resilience, recognition, and creative community.</h2>
+
+  <p>For over five decades, Lenz Arts has been part of the Santa Cruz story. Below are some moments—both challenging and celebratory—that found their way into the headlines.</p>
+
+  <article>
+    <h3>Rising from the Ashes (2002)</h3>
+
+    <div class="news-entry">
+      <strong>Lenz Arts damaged by fire</strong>
+      <em>Santa Cruz Sentinel – March 17, 2002</em>
+      <p>A 34-year-old business in downtown Santa Cruz faces serious fire damage. By Jeanene Harlick</p>
+    </div>
+
+    <div class="news-entry">
+      <strong>Lenz may reopen next week</strong>
+      <em>Santa Cruz Sentinel – March 20, 2002</em>
+      <p>Investigators find evidence of camping beneath the store—exact cause remains unclear. By Mike De Give</p>
+    </div>
+
+    <div class="news-entry">
+      <strong>Resiliency keeps Lenz Arts tradition alive</strong>
+      <em>Santa Cruz Sentinel – April 8, 2007</em>
+      <p>Five years later, a follow-up on how the Lenz family turned hardship into growth. By Jondi Gumz</p>
+    </div>
+  </article>
+
+  <article>
+    <h3>Celebrating Milestones</h3>
+
+    <div class="news-entry">
+      <strong>Lenz Arts Nears 45th Birthday</strong>
+      <em>Santa Cruz Sentinel – July 26, 2013</em>
+      <p>Celebrating 45 years in Santa Cruz with free food, face painting, and art-filled fun. By Luke Barnes</p>
+    </div>
+
+    <div class="news-entry">
+      <strong>Editorial: Lenz Arts in Focus</strong>
+      <em>Santa Cruz Sentinel – July 29, 2013</em>
+      <p>Looking back at 45 years of creativity, family, and small business perseverance. By the Sentinel Editorial Board</p>
+    </div>
+  </article>
+
+  <article>
+    <h3>Honors & Recognition</h3>
+
+    <div class="news-entry">
+      <strong>Lifetime Achievement Award</strong>
+      <em>Santa Cruz Sentinel – March 19, 2016</em>
+      <p>Andy and Cynthia Lenz were honored by the International Art Materials Association for their lasting impact on the art supply world. By Justine DaCosta</p>
+    </div>
+
+    <div class="news-entry">
+      <strong>Labor of Love</strong>
+      <em>Good Times – April 20, 2016</em>
+      <p>A heartfelt feature on the couple behind Lenz Arts and the passion that built a community. By Christina Waters</p>
+    </div>
+
+    <div class="news-entry">
+      <strong>Watch the award presentation</strong>
+      <p>A special moment from Houston, Texas, recognizing decades of love and leadership in the arts.</p>
+    </div>
+  </article>
+
+  <article>
+    <h3>Artist Shout-Out</h3>
+
+    <div class="news-entry">
+      <strong>Tom Killion Celebrates Mt. Tamalpais</strong>
+      <em>Santa Cruz Sentinel – May 14, 2009</em>
+      <p>Bay Area woodcut artist Tom Killion gives a nod to Lenz Arts in a piece remembering his artistic journey. By Chris Watson</p>
+    </div>
+  </article>
+
+  <article>
+    <h3>More Stories and Photos</h3>
+    <p>Explore our journey through the years on our <a href="https://www.facebook.com/LenzArts" target="_blank" rel="noopener noreferrer">Facebook page</a>. You don’t need an account to browse, but if you do have one, feel free to follow us and share your Lenz Arts memories.</p>
+  </article>
+</section>
+
+<script>
+  const toggleBtn = document.querySelector('.toggle-btn');
+  const body = document.body;
+
+  // Load saved preference
+  if(localStorage.getItem('darkMode') === 'enabled') {
+    body.classList.add('dark-mode');
+    toggleBtn.textContent = 'Light Mode';
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    if(body.classList.contains('dark-mode')) {
+      toggleBtn.textContent = 'Light Mode';
+      localStorage.setItem('darkMode', 'enabled');
+    } else {
+      toggleBtn.textContent = 'Dark Mode';
+      localStorage.setItem('darkMode', 'disabled');
+    }
+  });
+</script>
+
+</body>
+</html>
