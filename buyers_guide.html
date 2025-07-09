@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Monthly Buyer's Guide | Lenz Arts - Art Supply Specials | Santa Cruz, CA</title>
+  <meta name="description" content="Download our monthly buyer's guide featuring hundreds of art supply sale items and specials. Published monthly in The Santa Cruz Sentinel with exclusive in-store offers.">
+  <link rel="icon" type="image/png" href="attached_assets/LENZarts_logo_1751534733182.png">
+  <style>
+    /* CSS Variables for light and dark themes */
+    :root {
+      --bg-color: #f9f7f1;
+      --text-color: #3a3a3a;
+      --heading-color: #2c2c2c;
+      --accent-color: #6A0DAD;
+      --link-color: #00A3E0;
+      --link-hover: #0082B8;
+      --box-shadow: rgba(106, 13, 173, 0.15);
+      --iframe-shadow: rgba(0, 163, 224, 0.2);
+      --nav-bg: rgba(249, 247, 241, 0.95);
+      --hero-gradient: linear-gradient(135deg, #01a0c6, #6A0DAD);
+    }
+    [data-theme="dark"] {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --heading-color: #f1f1f1;
+      --accent-color: #8A3FC7;
+      --link-color: #33B7E8;
+      --link-hover: #5BC4ED;
+      --box-shadow: rgba(138, 63, 199, 0.4);
+      --iframe-shadow: rgba(51, 183, 232, 0.3);
+      --nav-bg: rgba(18, 18, 18, 0.95);
+      --hero-gradient: linear-gradient(135deg, #01a0c6, #6A0DAD);
+    }
+
+    /* Reset & basics */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      padding-top: 80px;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+    h1, h2, h3 {
+      color: var(--heading-color);
+      margin-bottom: 0.3em;
+      transition: color 0.4s ease;
+    }
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5em;
+      text-align: center;
+      font-weight: 700;
+    }
+    h2 {
+      font-size: 1.8rem;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 0.25em;
+      margin-top: 1.5em;
+      transition: border-color 0.4s ease;
+    }
+    h3 {
+      font-size: 1.4rem;
+      margin-top: 1em;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      box-shadow: 0 2px 10px var(--box-shadow);
+      transition: all 0.4s ease;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color 0.4s ease;
+      padding: 20px 0.5rem 0.5rem 0.5rem;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 2rem;
+    }
+    .nav-links a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.4s ease;
+      position: relative;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent-color);
+    }
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--accent-color);
+    }
+
+    /* Mobile Navigation */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      padding: 8px;
+      border-radius: 6px;
+      background: rgba(106, 13, 173, 0.1);
+      transition: all 0.3s ease;
+      min-width: 44px;
+      min-height: 44px;
+      justify-content: center;
+      align-items: center;
+    }
+    .hamburger:hover {
+      background: rgba(106, 13, 173, 0.2);
+      transform: scale(1.05);
+    }
+    .hamburger span {
+      width: 28px;
+      height: 3px;
+      background: var(--text-color);
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(8px, -8px);
+    }
+    .mobile-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--nav-bg);
+      backdrop-filter: blur(15px);
+      display: none;
+      flex-direction: column;
+      padding: 0.75rem 0;
+      box-shadow: 0 8px 32px var(--box-shadow);
+      border-radius: 0 0 12px 12px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+    .mobile-menu.active {
+      display: flex;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    .mobile-menu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .mobile-menu li {
+      padding: 0.75rem 2rem;
+      border-bottom: 1px solid rgba(106, 13, 173, 0.1);
+    }
+    .mobile-menu li:last-child {
+      border-bottom: none;
+    }
+    .mobile-menu a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      display: block;
+      padding: 0.25rem 0;
+    }
+    .mobile-menu a:hover,
+    .mobile-menu a.active {
+      color: var(--accent-color);
+      transform: translateX(8px);
+    }
+    .theme-toggle-mobile {
+      padding: 0.75rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      color: var(--text-color);
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      border-top: 1px solid rgba(106, 13, 173, 0.2);
+      margin-top: 0.25rem;
+    }
+    .theme-toggle-mobile:hover {
+      color: var(--accent-color);
+      background: rgba(106, 13, 173, 0.05);
+    }
+
+    @media (max-width: 1024px) {
+      .nav-links {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .nav-container {
+        position: relative;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        padding: 0 1rem;
+      }
+      .hamburger {
+        margin-right: 0.5rem;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      background: var(--hero-gradient);
+      color: white;
+      padding: 6rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      color: white;
+    }
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+    }
+    .cta-button {
+      display: inline-block;
+      background: white;
+      color: var(--accent-color);
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .hero p {
+        font-size: 1.1rem;
+      }
+      .cta-button {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+      }
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      box-shadow: 0 4px 15px var(--box-shadow);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    .back-to-top:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--box-shadow);
+    }
+    .back-to-top.show {
+      display: flex;
+    }
+    [data-theme="dark"] .back-to-top {
+      background: #8A3FC7;
+      box-shadow: 0 4px 15px rgba(138, 63, 199, 0.4);
+    }
+
+    /* Buyers Guide Specific Styles */
+    section#buyers-guide {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: var(--bg-color);
+      padding: 2rem 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px var(--box-shadow);
+      transition: background-color 0.4s ease, box-shadow 0.4s ease;
+    }
+    
+    .download-section {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: linear-gradient(135deg, rgba(106, 13, 173, 0.1), rgba(1, 160, 198, 0.1));
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      border: 2px solid rgba(106, 13, 173, 0.2);
+    }
+
+    .pdf-icon {
+      width: 48px;
+      height: 48px;
+      background: #e74c3c;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    .download-link {
+      background: var(--accent-color);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .download-link:hover {
+      background: #5a0b8a;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(106, 13, 173, 0.4);
+    }
+
+    .publication-info {
+      background: rgba(1, 160, 198, 0.1);
+      border-left: 4px solid #01a0c6;
+      padding: 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0;
+    }
+
+    .publication-info h3 {
+      color: #01a0c6;
+      margin-bottom: 0.5rem;
+    }
+
+    .adobe-section {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: #f8f9fa;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 1.5rem;
+      border: 1px solid #dee2e6;
+    }
+
+    [data-theme="dark"] .adobe-section {
+      background: #2a2a2a;
+      border-color: #444;
+    }
+
+    .adobe-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(45deg, #ff0000, #ff6600);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0.5em 0 1em 0;
+    }
+    ul li {
+      margin-bottom: 0.7em;
+      font-size: 1.1rem;
+      word-break: break-word;
+    }
+    ul li strong {
+      color: var(--accent-color);
+      transition: color 0.4s ease;
+    }
+    a {
+      color: var(--link-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      word-break: break-word;
+    }
+    a:hover, a:focus {
+      color: var(--link-hover);
+      text-decoration: underline;
+    }
+    p {
+      font-size: 1.1rem;
+      margin: 0.7em 0;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+      section#buyers-guide {
+        padding: 1.5rem 1rem;
+        margin: 1rem;
+      }
+      .download-section {
+        flex-direction: column;
+        text-align: center;
+      }
+      .adobe-section {
+        flex-direction: column;
+        text-align: center;
+      }
+      .back-to-top {
+        bottom: 20px !important;
+        right: 15px !important;
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 16px !important;
+        display: flex !important;
+      }
+      .back-to-top.show {
+        display: flex !important;
+      }
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #6A0DAD 0%, #01a0c6 100%);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
+    }
+    
+    footer p, footer a, footer em {
+      font-size: 0.85rem !important;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="/" class="logo">Lenz Arts</a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/art-materials">Art Materials</a></li>
+        <li><a href="/framing">Custom Framing</a></li>
+        <li><a href="/demos">Demos</a></li>
+        <li><a href="/gift-cards">Gift Cards</a></li>
+        <li><a href="/history">Our Story</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="mobile-menu" id="mobile-menu">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/art-materials">Art Materials</a></li>
+          <li><a href="/framing">Custom Framing</a></li>
+          <li><a href="/demos">Demos</a></li>
+          <li><a href="/gift-cards">Gift Cards</a></li>
+          <li><a href="/history">Our Story</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+        </ul>
+        <div class="theme-toggle-mobile" id="theme-toggle">
+          <span>Dark Mode</span>
+          <span>🌙</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Monthly Buyer's Guide</h1>
+    <p>Hundreds of sale items and exclusive specials every month! Our buyer's guides open the world of art to you with discounted products and unadvertised in-store specials.</p>
+    <a href="#buyers-guide" class="cta-button">View Guide Details</a>
+  </section>
+
+  <section id="buyers-guide">
+    <h1>Lenz Arts Buyer's Guide</h1>
+
+    <section id="download">
+      <h2>Download Current Guide</h2>
+      
+      <div style="display: flex; gap: 2rem; align-items: flex-start; margin: 2rem 0; flex-wrap: wrap;">
+        <!-- Left Column: Download Information -->
+        <div style="flex: 1; min-width: 300px;">
+          <div class="download-section">
+            <div class="pdf-icon">PDF</div>
+            <div>
+              <h3 style="margin: 0 0 0.5rem 0;">Current Monthly Guide Available</h3>
+              <p style="margin: 0 0 1rem 0;">Download your PDF version of our Buyer's Guide (Approximately 1MB - 3MB)</p>
+              <a href="#" class="download-link" onclick="alert('Please contact Lenz Arts for the current buyer\'s guide PDF')">Download PDF Guide</a>
+            </div>
+          </div>
+          
+          <p style="margin-top: 1.5rem;">Our monthly Buyer's Guides open the world of art to you! Hundreds of sale items are listed for your perusal. While many discounted products are published, there are many unadvertised in-store specials you'll discover when you visit Lenz Arts in person!</p>
+          
+          <div class="publication-info" style="margin-top: 1.5rem;">
+            <h3>Where to Find Our Guide</h3>
+            <p><strong>Primary Publication:</strong> Buyer's Guides are inserted in <em>The Santa Cruz Sentinel</em>, usually the Monday closest to the 1st of every month, though if there's a holiday conflict, we may move it a week earlier or later.</p>
+            
+            <p><strong>Additional Publications:</strong> We also occasionally insert into the <em>Scotts Valley Banner</em> and <em>The Valley Times</em>.</p>
+            
+            <p><em>Oops, did we forget to upload this month's guide? <a href="/contact" style="color: #01a0c6; text-decoration: none; font-weight: 600;">Contact us!</a></em></p>
+          </div>
+        </div>
+        
+        <!-- Right Column: Guide Images -->
+        <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 1.5rem;">
+          <div style="text-align: center;">
+            <img src="attached_assets/buy_gd_cover (1)_1751617239744.jpg" alt="July Buyer's Guide cover featuring anniversary art event" style="width: 100%; max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 15px var(--box-shadow);">
+            <p style="text-align: center; font-size: 0.9rem; color: var(--accent-color); margin-top: 0.5rem; font-weight: 600;">Current July Issue</p>
+          </div>
+          <div style="text-align: center;">
+            <img src="attached_assets/BuyersGuidesTower-2024_1751616869506.jpg" alt="Stack of monthly Lenz Arts buyer's guides from 2024" style="width: 100%; max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 15px var(--box-shadow);">
+            <p style="text-align: center; font-size: 0.9rem; color: var(--accent-color); margin-top: 0.5rem; font-weight: 600;">2024 Archive</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section id="adobe-help">
+      <h2>Need Help Reading PDFs?</h2>
+      
+      <div class="adobe-section">
+        <div class="adobe-icon">Adobe</div>
+        <div>
+          <p>If you have trouble reading our file, we suggest you download the latest version of the free <a href="https://get.adobe.com/reader/" target="_blank" rel="noopener noreferrer" style="color: var(--link-color); text-decoration: none; font-weight: 600;">Adobe Acrobat Reader</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="visit-store">
+      <h2>Visit Us In-Store</h2>
+      <p>Remember, while our buyer's guide features hundreds of sale items, there are always additional unadvertised specials available when you visit our Santa Cruz location. Our knowledgeable staff can help you find exactly what you need for your artistic projects!</p>
+      
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href="/contact" class="download-link">Get Directions & Hours</a>
+      </div>
+    </section>
+  </section>
+
+  <footer>
+    <div style="text-align: center;">
+      <div style="margin-bottom: 1rem;">
+        <a href="https://lenzarts.us5.list-manage.com/subscribe?u=0ea02606e000e69dd6d15a1f1&id=d15d10c33e" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: none; font-weight: 500; font-size: 0.9rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 1rem; border-radius: 20px; display: inline-block; transition: all 0.3s ease; border: 2px solid rgba(255, 255, 255, 0.3);" onmouseover="this.style.background='rgba(255, 255, 255, 0.3)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.2)'; this.style.transform='translateY(0)'">Sign up for our Email Newsletter!</a>
+      </div>
+      
+      <div style="margin-bottom: 1rem;">
+        <a href="/" style="color: white; text-decoration: none; margin: 0 0.75rem;">Home</a> |
+        <a href="/art-materials" style="color: white; text-decoration: none; margin: 0 0.75rem;">Art Materials</a> |
+        <a href="/framing" style="color: white; text-decoration: none; margin: 0 0.75rem;">Custom Framing</a> |
+        <a href="/demos" style="color: white; text-decoration: none; margin: 0 0.75rem;">Demos</a> |
+        <a href="/gift-cards" style="color: white; text-decoration: none; margin: 0 0.75rem;">Gift Cards</a> |
+        <a href="/history" style="color: white; text-decoration: none; margin: 0 0.75rem;">Our Story</a> |
+        <a href="/contact" style="color: white; text-decoration: none; margin: 0 0.75rem;">Contact Us</a>
+      </div>
+    <p>&copy;1999-2025 Lenz Arts, Inc. | <a href="/legal" style="color: white; text-decoration: none;">All Rights Reserved</a> | <a href="/privacy" style="color: white; text-decoration: none;">Privacy Statement</a><br>
+    <em>Lenz Arts • <a href="https://www.google.com/maps/place/142+River+St,+Santa+Cruz,+CA+95060" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: none;">142 River Street, Santa Cruz, CA 95060</a> • (831) 281-7637</em></p>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <script>
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (event) => {
+      if (!hamburger.contains(event.target) && !mobileMenu.contains(event.target)) {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+      }
+    });
+
+    // Theme toggle functionality
+    const toggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+    const toggleText = toggleBtn.querySelector('span:first-child');
+
+    // Load theme from localStorage or default to light
+    if(localStorage.getItem('theme') === 'dark') {
+      body.setAttribute('data-theme', 'dark');
+      toggleText.textContent = 'Light Mode';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      const currentTheme = body.getAttribute('data-theme');
+      if(currentTheme === 'dark') {
+        body.removeAttribute('data-theme');
+        toggleText.textContent = 'Dark Mode';
+        localStorage.setItem('theme', 'light');
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        toggleText.textContent = 'Light Mode';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+
+    // Back to top button
+    const backToTopButton = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('show');
+      } else {
+        backToTopButton.classList.remove('show');
+      }
+    });
+
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

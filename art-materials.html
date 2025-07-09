@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Premium Art Materials - Lenz Arts | Santa Cruz, CA</title>
+  <meta name="description" content="Discover premium art materials at Lenz Arts - serving Santa Cruz artists since 1968. Professional paints, brushes, canvas, and drawing supplies from trusted brands.">
+  <link rel="icon" type="image/png" href="attached_assets/LENZarts_logo_1751534733182.png">
+  <style>
+    /* CSS Variables for light and dark themes */
+    :root {
+      --bg-color: #f9f7f1;
+      --text-color: #3a3a3a;
+      --heading-color: #2c2c2c;
+      --accent-color: #6A0DAD;
+      --link-color: #00A3E0;
+      --link-hover: #0082B8;
+      --box-shadow: rgba(106, 13, 173, 0.15);
+      --iframe-shadow: rgba(0, 163, 224, 0.2);
+      --nav-bg: rgba(249, 247, 241, 0.95);
+      --hero-gradient: linear-gradient(135deg, #01a0c6, #6A0DAD);
+    }
+    [data-theme="dark"] {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --heading-color: #f1f1f1;
+      --accent-color: #8A3FC7;
+      --link-color: #33B7E8;
+      --link-hover: #5BC4ED;
+      --box-shadow: rgba(138, 63, 199, 0.4);
+      --iframe-shadow: rgba(51, 183, 232, 0.3);
+      --nav-bg: rgba(18, 18, 18, 0.95);
+      --hero-gradient: linear-gradient(135deg, #01a0c6, #6A0DAD);
+    }
+
+    /* Reset & basics */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      padding-top: 80px;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(106, 13, 173, 0.1);
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color 0.4s ease;
+      padding: 20px 0.5rem 0.5rem 0.5rem;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: clamp(1rem, 3vw, 2.5rem);
+    }
+    .nav-links a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.4s ease;
+      position: relative;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent-color);
+    }
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--accent-color);
+    }
+
+    /* Mobile Navigation */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      padding: 8px;
+      border-radius: 6px;
+      background: rgba(106, 13, 173, 0.1);
+      transition: all 0.3s ease;
+      min-width: 44px;
+      min-height: 44px;
+      justify-content: center;
+      align-items: center;
+    }
+    .hamburger:hover {
+      background: rgba(106, 13, 173, 0.2);
+      transform: scale(1.05);
+    }
+    .hamburger span {
+      width: 28px;
+      height: 3px;
+      background: var(--text-color);
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    .mobile-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--nav-bg);
+      backdrop-filter: blur(15px);
+      display: none;
+      flex-direction: column;
+      padding: 0.75rem 0;
+      box-shadow: 0 8px 32px var(--box-shadow);
+      border-radius: 0 0 12px 12px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+    .mobile-menu.active {
+      display: flex;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    .mobile-menu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .mobile-menu li {
+      padding: 0.75rem 2rem;
+      border-bottom: 1px solid rgba(106, 13, 173, 0.1);
+    }
+    .mobile-menu li:last-child {
+      border-bottom: none;
+    }
+    .mobile-menu a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      display: block;
+      padding: 0.25rem 0;
+    }
+    .mobile-menu a:hover,
+    .mobile-menu a.active {
+      color: var(--accent-color);
+      transform: translateX(8px);
+    }
+    .theme-toggle-mobile {
+      padding: 0.75rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      color: var(--text-color);
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      border-top: 1px solid rgba(106, 13, 173, 0.2);
+      margin-top: 0.25rem;
+    }
+    .theme-toggle-mobile:hover {
+      color: var(--accent-color);
+      background: rgba(106, 13, 173, 0.05);
+    }
+
+    @media (max-width: 1024px) {
+      .nav-links {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .nav-container {
+        position: relative;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        padding: 0 1rem;
+      }
+      .hamburger {
+        min-width: 40px;
+        min-height: 40px;
+      }
+      .hamburger span {
+        width: 24px;
+        height: 2px;
+      }
+      .mobile-menu ul {
+        padding: 1.5rem;
+        gap: 0.75rem;
+      }
+      .mobile-menu a {
+        font-size: 1rem;
+        padding: 0.5rem 0;
+      }
+    }
+
+    /* Main content */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 2rem;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      background: linear-gradient(135deg, #01a0c6, #6A0DAD);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      padding: 2rem 2rem;
+      border-radius: 15px;
+      margin-bottom: 3rem;
+      position: relative;
+      min-height: 400px;
+    }
+    
+    /* Optional overlay for better text readability when using images */
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 15px;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .hero-section.with-image::before {
+      opacity: 1;
+    }
+    
+    .hero-section > * {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-content {
+      flex: 1;
+      text-align: left;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero-image img {
+      width: 100%;
+      max-width: 500px;
+      max-height: 250px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 3;
+      display: block;
+    }
+    
+    .hero-section h1 {
+      color: white;
+      margin-bottom: 1rem;
+      font-size: 32px;
+      text-align: left;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    .hero-section p {
+      font-size: 1rem;
+      line-height: 1.6;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Category Grid */
+    .category-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin: 3rem 0;
+      padding: 2rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px var(--box-shadow);
+    }
+    [data-theme="dark"] .category-grid {
+      background: #1e1e1e;
+    }
+    .category-column {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .category-link {
+      color: var(--link-color);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 0;
+      transition: color 0.3s ease;
+      border-bottom: 1px solid rgba(106, 13, 173, 0.1);
+    }
+    .category-link:hover {
+      color: var(--link-hover);
+    }
+
+    /* Product Sections */
+    .product-section {
+      margin: 4rem 0;
+      padding: 2rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px var(--box-shadow);
+    }
+    [data-theme="dark"] .product-section {
+      background: #1e1e1e;
+    }
+    .product-section h2 {
+      color: var(--accent-color);
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 1rem;
+    }
+
+    /* Subsections */
+    .subsection {
+      margin: 3rem 0;
+    }
+    .subsection h3 {
+      color: var(--accent-color);
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(106, 13, 173, 0.2);
+    }
+
+    /* Brand Grid */
+    .brand-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .brand-item {
+      text-align: center;
+      padding: 1rem;
+      border: 1px solid rgba(106, 13, 173, 0.1);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    .brand-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px var(--box-shadow);
+      border-color: var(--accent-color);
+    }
+    .brand-image-placeholder {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, rgba(1, 160, 198, 0.1), rgba(106, 13, 173, 0.1));
+      border: 2px dashed var(--accent-color);
+      border-radius: 8px;
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-color);
+      font-size: 0.8rem;
+    }
+    .brand-item p {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    .brand-item strong {
+      color: var(--accent-color);
+      font-size: 1rem;
+    }
+    .brand-item em {
+      color: var(--link-color);
+      font-style: italic;
+      font-size: 0.85rem;
+    }
+
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #6A0DAD 0%, #01a0c6 100%);
+      color: white;
+      padding: 3rem 0 1rem;
+      margin-top: 4rem;
+      border-top: 1px solid rgba(106, 13, 173, 0.1);
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      text-align: center;
+    }
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .footer-nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .footer-nav a:hover {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .footer-info {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 2rem;
+      color: white;
+      line-height: 1.8;
+    }
+    .footer-info a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer-info a:hover {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .footer-contact {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      box-shadow: 0 4px 15px var(--box-shadow);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    .back-to-top:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--box-shadow);
+    }
+    .back-to-top.show {
+      display: flex;
+    }
+    [data-theme="dark"] .back-to-top {
+      background: #8A3FC7;
+      box-shadow: 0 4px 15px rgba(138, 63, 199, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      .footer-nav {
+        gap: 1rem;
+        font-size: 0.9rem;
+      }
+      .back-to-top {
+        bottom: 20px !important;
+        right: 15px !important;
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 16px !important;
+      }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      main {
+        padding: 1rem;
+      }
+      .hero-section {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem 1rem;
+        text-align: center;
+      }
+      .hero-content {
+        text-align: center;
+      }
+      .hero-image {
+        order: -1;
+      }
+      .hero-image img {
+        max-width: 100%;
+        height: auto;
+      }
+      .hero-section h1 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+        word-wrap: break-word;
+        hyphens: auto;
+      }
+      .hero-section p {
+        font-size: 1rem;
+      }
+      .category-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 1.5rem;
+      }
+      .product-section {
+        padding: 1.5rem;
+      }
+      .brand-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+      }
+      .brand-item {
+        padding: 0.75rem;
+      }
+      .brand-image-placeholder {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+    <div class="nav-container">
+      <a href="/" class="logo">
+        <img src="attached_assets/LENZarts_logo_1751534733182.png" alt="Lenz Arts" style="height: 50px; width: auto;">
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/art-materials" class="active">Art Materials</a></li>
+        <li><a href="/framing">Custom Framing</a></li>
+        <li><a href="/demos">Demos</a></li>
+        <li><a href="/gift-cards">Gift Cards</a></li>
+        <li><a href="/history">Our Story</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="mobile-menu" id="mobile-menu">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/art-materials" class="active">Art Materials</a></li>
+          <li><a href="/framing">Custom Framing</a></li>
+          <li><a href="/demos">Demos</a></li>
+          <li><a href="/gift-cards">Gift Cards</a></li>
+          <li><a href="/history">Our Story</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+        </ul>
+        <div class="theme-toggle-mobile" id="theme-toggle">
+          <span>Dark Mode</span>
+          <span>🌙</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="hero-section">
+      <div class="hero-content">
+        <h1>Premium Art Materials</h1>
+        <p>For over 55 years, we've been Santa Cruz's premier destination for professional and student art materials. Our carefully curated selection includes the finest supplies from trusted brands worldwide.</p>
+      </div>
+      <div class="hero-image">
+        <img src="attached_assets/Oil-Paints_1751602111956.jpg" alt="Professional art supplies and materials available at Lenz Arts" loading="lazy">
+      </div>
+    </div>
+
+
+
+    <div class="category-grid">
+      <div class="category-column">
+        <a href="/paints-pigments" class="category-link">↓ Paints · Dyes · Pigments · Mediums</a>
+        <a href="/brushes-tools" class="category-link">↓ Brushes</a>
+        <a href="#adhesives" class="category-link">↓ Adhesives</a>
+        <a href="/printmaking-supplies" class="category-link">↓ Printing · Printmaking</a>
+        <a href="/drawing-materials" class="category-link">↓ Pencils</a>
+        <a href="#markers" class="category-link">↓ Markers · Pens · Inks</a>
+        <a href="#drafting" class="category-link">↓ Drafting</a>
+        <a href="#sign" class="category-link">↓ Sign Making</a>
+        <a href="/papers-canvas" class="category-link">↓ Canvas · Bars · Panels</a>
+        <a href="#easels" class="category-link">↓ Easels</a>
+      </div>
+      
+      <div class="category-column">
+        <a href="/sculpture-3d" class="category-link">↓ Sculpture</a>
+        <a href="#crafts" class="category-link">↓ Crafts</a>
+        <a href="/papers-canvas" class="category-link">↓ Paper</a>
+        <a href="/framing" class="category-link">↓ Framing</a>
+        <a href="#matboards" class="category-link">↓ Matboards</a>
+        <a href="#airbrushes" class="category-link">↓ Airbrushes</a>
+        <a href="#books" class="category-link">↓ Books</a>
+        <a href="#graphic" class="category-link">↓ Graphic Materials</a>
+        <a href="#miscellaneous" class="category-link">↓ Miscellaneous</a>
+      </div>
+    </div>
+
+    <!-- Featured Product Sections -->
+    <section class="product-section" id="paints">
+      <h2>Paints · Dyes · Pigments · Mediums</h2>
+      
+      <div class="subsection">
+        <h3>Watercolor</h3>
+        <div class="brand-grid">
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Daniel Smith</strong><br>15ml Tubes<br><em>At least 35% off every day</em></p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Daniel Smith</strong><br>Half-pan sets</p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Daniel Smith</strong><br>Watercolor Sticks</p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Winsor & Newton</strong><br>Artist Watercolors</p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Sennelier</strong><br>L'Aquarelle</p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>QoR by Golden</strong><br>Modern Watercolors</p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Holbein</strong><br>Artists' Watercolor</p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Schmincke</strong><br>Horadam Aquarell</p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>M. Graham</strong><br>Watercolors<br><em>At least 40% off every day</em></p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Winsor & Newton</strong><br>Cotman</p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Talens Van Gogh</strong><br>Watercolor</p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Grumbacher</strong><br>Academy</p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Art Creations</strong><br>Sets</p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Pelican (sets)</strong></p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Prang (sets)</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>Oil (Tubes)</h3>
+        <div class="brand-grid">
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Winsor & Newton</strong><br>Artist Oils</p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Winsor & Newton</strong><br>Winton Oils</p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Winsor & Newton</strong><br>Griffin Alkyd</p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Talens Rembrandt</strong><br>Oil Colors</p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Talens Cobra</strong><br>Water-cleanup</p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Michael Harding</strong><br>Oil Colours</p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Williamsburg</strong><br>Oil Colors</p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Sennelier</strong><br>Extra Fine Oils</p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Gamblin</strong><br>Artist Oils</p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Gamblin 1980</strong><br>Student Grade</p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>M. Graham</strong><br>Oil Colors</p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Daler-Rowney</strong><br>Georgian</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>Acrylic</h3>
+        <div class="brand-grid">
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Liquitex</strong><br>Heavy Body</p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Liquitex</strong><br>Soft Body</p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Golden Heavy Body</strong><br><em>At least 30% off every day</em></p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Golden OPEN</strong><br>Slow-dry Acrylics</p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Golden Fluids</strong><br>High Pigment Load</p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Holbein</strong><br>Acrylic Gouache</p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Sennelier</strong><br>Abstract</p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>M. Graham</strong><br>Acrylics<br><em>At least 40% off every day</em></p>
+          </div>
+          <div class="brand-item">
+            <div class="brand-image-placeholder"></div>
+            <p><strong>Talens Amsterdam</strong><br>Standard Series</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div style="margin-bottom: 1rem;">
+        <a href="https://lenzarts.us5.list-manage.com/subscribe?u=0ea02606e000e69dd6d15a1f1&id=d15d10c33e" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: none; font-weight: 500; font-size: 0.9rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 1rem; border-radius: 20px; display: inline-block; transition: all 0.3s ease; border: 2px solid rgba(255, 255, 255, 0.3);" onmouseover="this.style.background='rgba(255, 255, 255, 0.3)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.2)'; this.style.transform='translateY(0)'">Sign up for our Email Newsletter!</a>
+      </div>
+      
+      <div style="margin-bottom: 1rem;">
+        <a href="/" style="color: white; text-decoration: none; margin: 0 0.75rem; font-size: 0.85rem !important;">Home</a> |
+        <a href="/art-materials" style="color: white; text-decoration: none; margin: 0 0.75rem; font-size: 0.85rem !important;">Art Materials</a> |
+        <a href="/framing" style="color: white; text-decoration: none; margin: 0 0.75rem; font-size: 0.85rem !important;">Custom Framing</a> |
+        <a href="/demos" style="color: white; text-decoration: none; margin: 0 0.75rem; font-size: 0.85rem !important;">Demos</a> |
+        <a href="/gift-cards" style="color: white; text-decoration: none; margin: 0 0.75rem; font-size: 0.85rem !important;">Gift Cards</a> |
+        <a href="/history" style="color: white; text-decoration: none; margin: 0 0.75rem; font-size: 0.85rem !important;">Our Story</a> |
+        <a href="/contact" style="color: white; text-decoration: none; margin: 0 0.75rem; font-size: 0.85rem !important;">Contact Us</a>
+      </div>
+      <p style="font-size: 0.85rem !important;">&copy;1999-2025 Lenz Arts, Inc. | <a href="/legal" style="color: white; text-decoration: none; font-size: 0.85rem !important;">All Rights Reserved</a> | <a href="/privacy" style="color: white; text-decoration: none; font-size: 0.85rem !important;">Privacy Statement</a><br>
+      <em style="font-size: 0.85rem !important;">Lenz Arts • <a href="https://www.google.com/maps/place/142+River+St,+Santa+Cruz,+CA+95060" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: none; font-size: 0.85rem !important;">142 River Street, Santa Cruz, CA 95060</a> • (831) 281-7637</em></p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile menu functionality
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', () => {
+          hamburger.classList.toggle('active');
+          mobileMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (event) => {
+          if (!hamburger.contains(event.target) && !mobileMenu.contains(event.target)) {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+          }
+        });
+        
+        // Close menu on escape key
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+          }
+        });
+      }
+
+      // Theme toggle functionality
+      const toggleBtn = document.getElementById('theme-toggle');
+      const body = document.body;
+      
+      if (toggleBtn) {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        body.setAttribute('data-theme', savedTheme);
+        
+        toggleBtn.addEventListener('click', () => {
+          const currentTheme = body.getAttribute('data-theme');
+          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          
+          body.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+        });
+      }
+
+      // Back to top functionality
+      const backToTopBtn = document.getElementById('backToTop');
+      
+      if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 300) {
+            backToTopBtn.classList.add('show');
+          } else {
+            backToTopBtn.classList.remove('show');
+          }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+          prevSlide();
+        } else if (e.key === 'ArrowRight') {
+          nextSlide();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

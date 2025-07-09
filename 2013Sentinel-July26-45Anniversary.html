@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lenz Arts Nears 45th Birthday - Santa Cruz Sentinel (July 26, 2013)</title>
+  
+  <style>
+    :root {
+      --primary-color: #01a0c6;
+      --accent-color: #6A0DAD;
+      --text-color: #333;
+      --bg-color: #f9f7f1;
+      --card-bg: white;
+      --border-color: #e0e0e0;
+      --shadow: 0 2px 10px rgba(0,0,0,0.1);
+      --link-color: var(--primary-color);
+      --link-hover: var(--accent-color);
+    }
+
+    [data-theme="dark"] {
+      --text-color: #e0e0e0;
+      --bg-color: #121212;
+      --card-bg: #1e1e1e;
+      --border-color: #333;
+      --shadow: 0 2px 10px rgba(0,0,0,0.3);
+      --link-color: #4dd0e1;
+      --link-hover: #ba68c8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+      transition: all 0.3s ease;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero .publication {
+      font-size: 0.9rem;
+      color: var(--accent-color);
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text-color);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .hero .date {
+      font-size: 1rem;
+      color: var(--primary-color);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .hero .author {
+      font-size: 0.9rem;
+      color: var(--text-color);
+      font-style: italic;
+      opacity: 0.8;
+    }
+
+    /* Article Content */
+    .article-content {
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      line-height: 1.8;
+    }
+
+    .article-content p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    .article-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Photo Sections */
+    .photo-section {
+      margin: 2.5rem 0;
+      padding: 1.5rem;
+      background: var(--bg-color);
+      border-radius: 8px;
+      border-left: 4px solid var(--accent-color);
+      text-align: center;
+    }
+
+    .photo-section img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .photo-caption {
+      font-style: italic;
+      color: var(--text-color);
+      opacity: 0.8;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* Quote Styling */
+    .quote {
+      font-style: italic;
+      padding-left: 1.5rem;
+      border-left: 4px solid var(--accent-color);
+      margin: 1.5rem 0;
+      color: var(--text-color);
+      opacity: 0.9;
+    }
+
+    /* Event Info Box */
+    .event-info {
+      background: var(--accent-color);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+    }
+
+    .event-info h3 {
+      color: white;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+
+    .event-info p {
+      margin-bottom: 0.8rem;
+      font-size: 1.1rem;
+    }
+
+    .event-info strong {
+      display: block;
+      margin-top: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    /* Navigation */
+    .back-nav {
+      margin-bottom: 2rem;
+    }
+
+    .back-nav a {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.75rem 1.5rem;
+      background: var(--accent-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .back-nav a:hover {
+      background: var(--primary-color);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(106, 13, 173, 0.3);
+    }
+
+    .back-nav a::before {
+      content: "←";
+      margin-right: 0.5rem;
+    }
+
+    /* Footer Note */
+    .footer-note {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: var(--bg-color);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      text-align: center;
+      font-style: italic;
+      opacity: 0.8;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      font-size: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      box-shadow: 0 4px 15px rgba(106, 13, 173, 0.3);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    .back-to-top:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(106, 13, 173, 0.4);
+    }
+    .back-to-top.show {
+      display: flex;
+    }
+    [data-theme="dark"] .back-to-top {
+      background: #8A3FC7;
+      box-shadow: 0 4px 15px rgba(138, 63, 199, 0.4);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .back-to-top {
+        bottom: 20px !important;
+        right: 15px !important;
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 16px !important;
+      }
+      .container {
+        padding: 1rem;
+      }
+
+      .hero {
+        padding: 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: 24px;
+      }
+
+      .article-content {
+        padding: 1.5rem;
+      }
+
+      .article-content p {
+        font-size: 1rem;
+      }
+
+      .photo-section {
+        padding: 1rem;
+      }
+
+      .theme-toggle {
+        top: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light theme">🌙</button>
+
+  <div class="container">
+    <div class="back-nav">
+      <a href="history.html">Back to Our Story</a>
+    </div>
+
+    <div class="hero">
+      <div class="publication">Santa Cruz Sentinel</div>
+      <h1>Lenz Arts Nears 45th Birthday</h1>
+      <div class="date">July 26, 2013</div>
+      <div class="author">By Luke Barnes, Santa Cruz Sentinel</div>
+    </div>
+
+    <div class="photo-section">
+      <img src="attached_assets/2013Anniversary-SentinelArticle_1751612177805.jpg" alt="Newspaper article about Lenz Arts 45th Anniversary" />
+      <div class="photo-caption">
+        Original Santa Cruz Sentinel newspaper article featuring Lenz Arts' 45th anniversary celebration with photos of Andy and Cynthia Lenz in their store
+      </div>
+    </div>
+
+    <div class="article-content">
+      <p><strong>SANTA CRUZ --</strong> On Aug. 1 Lenz Arts will celebrate its 45th year in Santa Cruz. But Saturday, the business at 142 River St. will hold an anniversary celebration, with free food, face painting and other activities.</p>
+
+      <p>Lenz Arts got its start in 1968, when founder Andy Lenz was pursuing a graduate degree at San Jose State. He was in Santa Cruz looking for a small replacement point for a technical pen. At the time, the stores either didn't stock the piece or couldn't supply him with it. As a result, Andy Lenz turned the need for the technical pen into a businesses that has lasted more than four decades.</p>
+
+      <p>Andy Lenz and his wife Cynthia, a Santa Cruz native, stressed that their business is as much about passion for art as business, and that they were "in it for the long run" when it comes to helping customers.</p>
+
+      <div class="quote">
+        "Part of the business is taking the time to teach customers to do more with less," Cynthia Lenz said. "Do you need a 30 dollar pallet when you can use a kitchen plate?"
+      </div>
+
+      <div class="quote">
+        "If you take care of customer it doesn't matter who the competition is," said Andrew Lenz, Andy's son.
+      </div>
+
+      <p>This emphasis on the customer extends to the staff.</p>
+
+      <div class="quote">
+        "It's more that just a job," said employee Lilly Bromberg. "It's a lot more fun for us to come to work when we get to try out new projects."
+      </div>
+
+      <div class="quote">
+        "I hadn't come here while in college, although most of the painters in the department shopped here," said Louise Leong, who recently graduated from UC Santa Cruz with an art degree specializing in printmaking. "I was kind of embarrassed to see what I'd missed out on."
+      </div>
+
+      <p>The Lenz family aims to ensure that its staff always maintains a positive attitude about the products they sell.</p>
+
+      <div class="quote">
+        "I had someone being cultivated to be a manager," Andy Lenz. "But it turned out that this person didn't have the enthusiasm for the stuff. It was widgets to them."
+      </div>
+
+      <p>But Andy Lenz had some cautionary advice for those seeking to start a small, independent art store of their own: don't do it.</p>
+
+      <div class="quote">
+        "The art community expects a lot right now," he said. "Now you have got the need for gratification overnight."
+      </div>
+
+      <p>He explained that the emergence of Internet retailers makes it easier for a customer to look from home for a specific product.</p>
+
+      <p>Nonetheless, the Lenzes said they are confident that they have two key advantages over online and chain retail competitors: customer satisfaction and product knowledge. The store aims to ensure that it can keep up with a shifting market, and see an 8 percent to 15 percent change in supplies every year.</p>
+
+      <div class="quote">
+        "Our store is organic and growing and shifting all the time," Andy Lenz said.
+      </div>
+
+      <p>Lenz Arts also enjoys support among resident Santa Cruz artists. Anna Oneglia, a local painter who has lived in Santa Cruz for 30 years, was particularly complimentary.</p>
+
+      <div class="quote">
+        "Before I bought through mail order, but the more I went to Lenz the more I got it that they were what I needed," Oneglia said.
+      </div>
+    </div>
+
+
+
+    <div class="footer-note">
+      <p><em>[Santa Cruz Sentinel article republished by permission.]</em></p>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const currentTheme = body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      body.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      // Update button icon
+      const button = document.querySelector('.theme-toggle');
+      button.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+    }
+
+    // Initialize theme
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.body.setAttribute('data-theme', savedTheme);
+      
+      const button = document.querySelector('.theme-toggle');
+      button.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+    });
+
+    // Back to top functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const backToTopButton = document.getElementById('backToTop');
+      
+      if (backToTopButton) {
+        window.addEventListener('scroll', () => {
+          if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('show');
+          } else {
+            backToTopButton.classList.remove('show');
+          }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+    });
+  </script>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <!-- Simple Footer -->
+  <footer style="background-color: #01a0c6; padding: 2rem 0; margin-top: 3rem; border-top: 1px solid #ddd; text-align: center; color: white; font-size: 0.9rem; line-height: 1.6;">
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 1rem;">
+      <p style="margin: 0 0 0.5rem 0;">©1999-2025 Lenz Arts, Inc. | All Rights Reserved | <a href="/privacy.html" style="color: white; text-decoration: underline;">Privacy Statement</a></p>
+      <p style="margin: 0;">Lenz Arts • 142 River Street, Santa Cruz, CA 95060 • (831) 281-7637</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Art Demos & Workshops | Lenz Arts - Learn from Local Artists | Santa Cruz, CA</title>
+  <meta name="description" content="Join our art demonstrations and workshops at Lenz Arts. Learn new techniques from professional artists in painting, drawing, printmaking, and more. All skill levels welcome.">
+  <link rel="icon" type="image/png" href="attached_assets/LENZarts_logo_1751534733182.png">
+  <style>
+    /* CSS Variables for light and dark themes */
+    :root {
+      --bg-color: #f9f7f1;
+      --text-color: #3a3a3a;
+      --heading-color: #2c2c2c;
+      --accent-color: #6A0DAD;
+      --link-color: #00A3E0;
+      --link-hover: #0082B8;
+      --box-shadow: rgba(106, 13, 173, 0.15);
+      --nav-bg: rgba(249, 247, 241, 0.95);
+    }
+    [data-theme="dark"] {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --heading-color: #f1f1f1;
+      --accent-color: #8A3FC7;
+      --link-color: #33B7E8;
+      --link-hover: #5BC4ED;
+      --box-shadow: rgba(138, 63, 199, 0.4);
+      --nav-bg: rgba(18, 18, 18, 0.95);
+    }
+
+    /* Reset & basics */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      padding-top: 80px;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+    h1, h2, h3 {
+      color: var(--heading-color);
+      transition: color 0.4s ease;
+    }
+
+    /* Navigation */
+    nav {
+      background: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 1rem 0;
+      box-shadow: 0 2px 10px var(--box-shadow);
+      transition: background-color 0.4s ease;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color 0.4s ease;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: clamp(1rem, 3vw, 2.5rem);
+    }
+    .nav-links a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--accent-color);
+    }
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--accent-color);
+    }
+    
+    /* Mobile Navigation */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      padding: 8px;
+      border-radius: 6px;
+      background: rgba(106, 13, 173, 0.1);
+      transition: all 0.3s ease;
+      min-width: 44px;
+      min-height: 44px;
+      justify-content: center;
+      align-items: center;
+    }
+    .hamburger:hover {
+      background: rgba(106, 13, 173, 0.2);
+      transform: scale(1.05);
+    }
+    .hamburger span {
+      width: 28px;
+      height: 3px;
+      background: var(--text-color);
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(8px, -8px);
+    }
+    .mobile-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--nav-bg);
+      backdrop-filter: blur(15px);
+      display: none;
+      flex-direction: column;
+      padding: 1.5rem 0;
+      box-shadow: 0 8px 32px var(--box-shadow);
+      border-radius: 0 0 12px 12px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+    .mobile-menu.active {
+      display: flex;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    .mobile-menu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .mobile-menu li {
+      padding: 0.75rem 2rem;
+      border-bottom: 1px solid rgba(106, 13, 173, 0.1);
+    }
+    .mobile-menu li:last-child {
+      border-bottom: none;
+    }
+    .mobile-menu a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      display: block;
+      padding: 0.25rem 0;
+    }
+    .mobile-menu a:hover,
+    .mobile-menu a.active {
+      color: var(--accent-color);
+      transform: translateX(8px);
+    }
+    .theme-toggle-mobile {
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      color: var(--text-color);
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+      border-top: 2px solid rgba(106, 13, 173, 0.2);
+      margin-top: 0.5rem;
+    }
+    .theme-toggle-mobile:hover {
+      color: var(--accent-color);
+      background: rgba(106, 13, 173, 0.05);
+    }
+
+    @media (max-width: 1024px) {
+      .nav-links {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .nav-container {
+        position: relative;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        padding: 0 1rem;
+      }
+      .hamburger {
+        margin-right: 0.5rem;
+      }
+      .hero-section {
+        flex-direction: column;
+        padding: 2rem 1rem;
+        text-align: center;
+        min-height: auto;
+        gap: 1.5rem;
+      }
+      .hero-content {
+        text-align: center;
+        max-width: 100%;
+        order: 1;
+      }
+      .hero-image {
+        max-width: 100%;
+        order: 2;
+        margin-top: 1rem;
+      }
+      .hero-image img {
+        max-height: 250px;
+        border-radius: 12px;
+      }
+      .hero-section h1 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+        word-wrap: break-word;
+        hyphens: auto;
+      }
+      .hero-section p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      .hero-ctas {
+        justify-content: center;
+      }
+      .cta-button {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+        min-width: 100px;
+      }
+      main {
+        padding: 2rem 1rem;
+      }
+      .back-to-top {
+        bottom: 20px !important;
+        right: 15px !important;
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 16px !important;
+        display: flex !important;
+      }
+      .back-to-top.show {
+        display: flex !important;
+      }
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      box-shadow: 0 4px 15px var(--box-shadow);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    .back-to-top:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--box-shadow);
+    }
+    .back-to-top.show {
+      display: flex;
+    }
+    [data-theme="dark"] .back-to-top {
+      background: #8A3FC7;
+      box-shadow: 0 4px 15px rgba(138, 63, 199, 0.4);
+    }
+
+    /* Main content */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 2rem;
+    }
+    h1 {
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-size: 1.8rem;
+      color: var(--accent-color);
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 0.25em;
+      margin-top: 2em;
+    }
+    
+    .hero-section {
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #01a0c6, #6A0DAD);
+      color: white;
+      padding: 3rem 2rem;
+      border-radius: 15px;
+      margin-bottom: 3rem;
+      min-height: 400px;
+      gap: 2rem;
+      overflow: hidden;
+    }
+    
+    .hero-content {
+      flex: 1;
+      max-width: 600px;
+      z-index: 2;
+    }
+    
+    .hero-image {
+      flex: 1;
+      max-width: 50%;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      max-height: 350px;
+      object-fit: contain;
+      object-position: center;
+      border-radius: 10px;
+    }
+    
+    .hero-section h1 {
+      color: white;
+      margin-bottom: 1rem;
+      font-size: 32px;
+      text-align: left;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .hero-section p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+    
+    .hero-ctas {
+      display: none;
+    }
+    
+    .cta-button {
+      background: var(--accent-color);
+      color: white;
+      padding: 0.875rem 2rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      border: 2px solid var(--accent-color);
+      display: inline-block;
+      text-align: center;
+      min-width: 120px;
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(106, 13, 173, 0.4);
+    }
+    
+    .cta-button.secondary {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+    }
+    
+    .cta-button.secondary:hover {
+      background: white;
+      color: var(--accent-color);
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    .demo-card {
+      background: rgba(106, 13, 173, 0.05);
+      padding: 2rem;
+      border-radius: 12px;
+      border-left: 4px solid var(--accent-color);
+      transition: all 0.3s ease;
+    }
+    .demo-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px var(--box-shadow);
+    }
+    .demo-card h3 {
+      color: var(--accent-color);
+      margin-top: 0;
+      font-size: 1.4rem;
+    }
+    .demo-card .skill-level {
+      display: inline-block;
+      background: var(--accent-color);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 15px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .upcoming-events {
+      background: rgba(106, 13, 173, 0.05);
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 3rem 0;
+    }
+    .upcoming-events h2 {
+      color: var(--accent-color);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .event {
+      padding: 1.5rem;
+      margin: 1rem 0;
+      background: white;
+      border-radius: 8px;
+      border-left: 4px solid var(--link-color);
+      transition: all 0.3s ease;
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      gap: 1.5rem;
+      align-items: start;
+    }
+    .event-content {
+      display: flex;
+      flex-direction: column;
+    }
+    .event-image-placeholder {
+      width: 100%;
+      height: 150px;
+      background: linear-gradient(135deg, rgba(1, 160, 198, 0.1), rgba(106, 13, 173, 0.1));
+      border: 2px dashed var(--accent-color);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-color);
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 1rem;
+      box-sizing: border-box;
+    }
+    @media (max-width: 768px) {
+      .event {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .event-image-placeholder {
+        height: 120px;
+        order: -1;
+      }
+    }
+    [data-theme="dark"] .event {
+      background: #1e1e1e;
+    }
+    [data-theme="dark"] .event-image-placeholder {
+      background: linear-gradient(135deg, rgba(1, 160, 198, 0.2), rgba(106, 13, 173, 0.2));
+      border-color: #8A3FC7;
+      color: #8A3FC7;
+    }
+    .event:hover {
+      box-shadow: 0 4px 12px var(--box-shadow);
+    }
+    .event-date {
+      color: var(--accent-color);
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    .event-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin: 0.5rem 0;
+    }
+    .event-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    [data-theme="dark"] .event-details {
+      color: #aaa;
+    }
+
+    footer {
+      background: linear-gradient(135deg, #6A0DAD 0%, #01a0c6 100%);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="/" class="logo">
+        <img src="attached_assets/LENZarts_logo_1751534733182.png" alt="Lenz Arts" style="height: 50px; width: auto;">
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/art-materials">Art Materials</a></li>
+        <li><a href="/framing">Custom Framing</a></li>
+        <li><a href="/demos" class="active">Demos</a></li>
+        <li><a href="/gift-cards">Gift Cards</a></li>
+        <li><a href="/history">Our Story</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="mobile-menu" id="mobile-menu">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/art-materials">Art Materials</a></li>
+          <li><a href="/framing">Custom Framing</a></li>
+          <li><a href="/demos" class="active">Demos</a></li>
+          <li><a href="/gift-cards">Gift Cards</a></li>
+          <li><a href="/history">Our Story</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+        </ul>
+        <div class="theme-toggle-mobile" id="theme-toggle">
+          <span>Dark Mode</span>
+          <span>🌙</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="hero-section">
+      <div class="hero-content">
+        <h1>Art Demonstrations & Workshops</h1>
+        <p>Learn from professional artists and discover new techniques in our hands-on demonstrations and workshops. Whether you're a beginner or experienced artist, our expert instructors will help you expand your skills and explore new creative possibilities.</p>
+        <div class="hero-ctas">
+          <a href="#" class="cta-button">CTA</a>
+          <a href="#" class="cta-button secondary">CTA</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="attached_assets/demo_1751617866327.png" alt="Art demonstration in progress at Lenz Arts with instructor teaching painting techniques to seated students" loading="lazy">
+      </div>
+    </div>
+
+
+
+    <section class="upcoming-events">
+      <h2>Upcoming Demonstrations</h2>
+      
+      <div class="event">
+        <div class="event-content">
+          <div class="event-date">Saturday, January 15, 2025</div>
+          <div class="event-title">Watercolor Landscapes with Sarah Chen</div>
+          <p>Join local artist Sarah Chen as she demonstrates watercolor landscape techniques inspired by the Santa Cruz coastline.</p>
+          <div class="event-details">
+            <div><strong>Time:</strong> 2:00 PM - 4:00 PM</div>
+            <div><strong>Skill Level:</strong> All Levels</div>
+            <div><strong>Cost:</strong> Free</div>
+            <div><strong>Materials:</strong> Provided</div>
+          </div>
+          <a href="contact.html" style="display: inline-block; background: var(--accent-color); color: white; padding: 0.75rem 1rem; border-radius: 25px; text-decoration: none; font-weight: bold; margin-top: 1rem; transition: all 0.3s ease; white-space: nowrap;">Register Now</a>
+        </div>
+        <div class="event-image-placeholder">
+          Demo Image<br>Placeholder
+        </div>
+      </div>
+
+      <div class="event">
+        <div class="event-content">
+          <div class="event-date">Saturday, January 29, 2025</div>
+          <div class="event-title">Oil Painting Portrait Demo with Miguel Rodriguez</div>
+          <p>Watch master painter Miguel Rodriguez create a portrait from start to finish using traditional oil painting techniques.</p>
+          <div class="event-details">
+            <div><strong>Time:</strong> 1:00 PM - 4:00 PM</div>
+            <div><strong>Skill Level:</strong> Intermediate</div>
+            <div><strong>Cost:</strong> $25</div>
+            <div><strong>Materials:</strong> Demo only</div>
+          </div>
+          <a href="contact.html" style="display: inline-block; background: var(--accent-color); color: white; padding: 0.75rem 1rem; border-radius: 25px; text-decoration: none; font-weight: bold; margin-top: 1rem; transition: all 0.3s ease; white-space: nowrap;">Register Now</a>
+        </div>
+        <div class="event-image-placeholder">
+          Demo Image<br>Placeholder
+        </div>
+      </div>
+
+      <div class="event">
+        <div class="event-content">
+          <div class="event-date">Saturday, February 12, 2025</div>
+          <div class="event-title">Printmaking Workshop with Lisa Park</div>
+          <p>Hands-on workshop exploring linocut printmaking. Create your own prints to take home.</p>
+          <div class="event-details">
+            <div><strong>Time:</strong> 10:00 AM - 3:00 PM</div>
+            <div><strong>Skill Level:</strong> Beginner</div>
+            <div><strong>Cost:</strong> $45</div>
+            <div><strong>Materials:</strong> Included</div>
+          </div>
+          <a href="contact.html" style="display: inline-block; background: var(--accent-color); color: white; padding: 0.75rem 1rem; border-radius: 25px; text-decoration: none; font-weight: bold; margin-top: 1rem; transition: all 0.3s ease; white-space: nowrap;">Register Now</a>
+        </div>
+        <div class="event-image-placeholder">
+          Demo Image<br>Placeholder
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; margin: 4rem 0; padding: 3rem; background: rgba(106, 13, 173, 0.05); border-radius: 12px;">
+      <h2>Why Attend Our Demos?</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+        <div>
+          <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">Learn from Experts</h4>
+          <p>Our instructors are professional working artists with years of teaching experience and deep knowledge of their mediums.</p>
+        </div>
+        <div>
+          <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">Small Class Sizes</h4>
+          <p>We keep our workshops intimate to ensure personalized attention and plenty of opportunities to ask questions.</p>
+        </div>
+        <div>
+          <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">Quality Materials</h4>
+          <p>All materials are provided using the same professional-grade supplies we sell in our store, so you experience the best tools available.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 2rem; background: linear-gradient(135deg, #01a0c6, #6A0DAD); color: white; border-radius: 12px; margin: 3rem 0;">
+      <h2 style="color: white; margin-bottom: 1rem;">Ready to Join a Demo?</h2>
+      <p style="font-size: 1.1rem; margin-bottom: 2rem;">Call us to reserve your spot or stop by the store for more information about upcoming demonstrations and workshops.</p>
+      <a href="contact.html" style="display: inline-block; background: white; color: var(--accent-color); padding: 1rem 2rem; border-radius: 25px; text-decoration: none; font-weight: bold; transition: all 0.3s ease;">Contact Us to Register</a>
+    </section>
+  </main>
+
+  <footer>
+    <div style="text-align: center;">
+      <div style="margin-bottom: 1rem;">
+        <a href="https://lenzarts.us5.list-manage.com/subscribe?u=0ea02606e000e69dd6d15a1f1&id=d15d10c33e" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: none; font-weight: 500; font-size: 0.9rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 1rem; border-radius: 20px; display: inline-block; transition: all 0.3s ease; border: 2px solid rgba(255, 255, 255, 0.3);" onmouseover="this.style.background='rgba(255, 255, 255, 0.3)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.2)'; this.style.transform='translateY(0)'">Sign up for our Email Newsletter!</a>
+      </div>
+      
+      <div style="margin-bottom: 1rem;">
+        <a href="/" style="color: white; text-decoration: none; margin: 0 0.75rem;">Home</a> |
+        <a href="/art-materials" style="color: white; text-decoration: none; margin: 0 0.75rem;">Art Materials</a> |
+        <a href="/framing" style="color: white; text-decoration: none; margin: 0 0.75rem;">Custom Framing</a> |
+        <a href="demos.html" style="color: white; text-decoration: none; margin: 0 0.75rem;">Demos</a> |
+        <a href="gift-cards.html" style="color: white; text-decoration: none; margin: 0 0.75rem;">Gift Cards</a> |
+        <a href="history.html" style="color: white; text-decoration: none; margin: 0 0.75rem;">Our Story</a> |
+        <a href="contact.html" style="color: white; text-decoration: none; margin: 0 0.75rem;">Contact Us</a>
+      </div>
+      <p>&copy;1999-2025 Lenz Arts, Inc. | <a href="legal.html" style="color: white; text-decoration: none;">All Rights Reserved</a> | <a href="privacy.html" style="color: white; text-decoration: none;">Privacy Statement</a><br>
+      <em>Lenz Arts • <a href="https://www.google.com/maps/place/142+River+St,+Santa+Cruz,+CA+95060" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: none;">142 River Street, Santa Cruz, CA 95060</a> • (831) 281-7637</em></p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <script>
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (event) => {
+      if (!hamburger.contains(event.target) && !mobileMenu.contains(event.target)) {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+      }
+    });
+
+    // Theme toggle functionality
+    const toggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+    const toggleText = toggleBtn.querySelector('span:first-child');
+
+    // Load theme from localStorage or default to light
+    if(localStorage.getItem('theme') === 'dark') {
+      body.setAttribute('data-theme', 'dark');
+      toggleText.textContent = 'Light Mode';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      const currentTheme = body.getAttribute('data-theme');
+      if(currentTheme === 'dark') {
+        body.removeAttribute('data-theme');
+        toggleText.textContent = 'Dark Mode';
+        localStorage.setItem('theme', 'light');
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        toggleText.textContent = 'Light Mode';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+
+    // Back to top functionality
+    const backToTopButton = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('show');
+      } else {
+        backToTopButton.classList.remove('show');
+      }
+    });
+
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+</body>
+</html>

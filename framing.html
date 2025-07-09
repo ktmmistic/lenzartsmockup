@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Custom Framing | Lenz Arts - Museum Quality Framing | Santa Cruz, CA</title>
+  <meta name="description" content="Expert custom framing services at Lenz Arts. Museum-quality conservation framing for artwork, photographs, and memorabilia. Over 55 years of framing experience in Santa Cruz.">
+  <link rel="icon" type="image/png" href="attached_assets/LENZarts_logo_1751534733182.png">
+  <style>
+    /* CSS Variables for light and dark themes */
+    :root {
+      --bg-color: #f9f7f1;
+      --text-color: #3a3a3a;
+      --heading-color: #2c2c2c;
+      --accent-color: #6A0DAD;
+      --link-color: #00A3E0;
+      --link-hover: #0082B8;
+      --box-shadow: rgba(106, 13, 173, 0.15);
+      --nav-bg: rgba(249, 247, 241, 0.95);
+    }
+    [data-theme="dark"] {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --heading-color: #f1f1f1;
+      --accent-color: #8A3FC7;
+      --link-color: #33B7E8;
+      --link-hover: #5BC4ED;
+      --box-shadow: rgba(138, 63, 199, 0.4);
+      --nav-bg: rgba(18, 18, 18, 0.95);
+    }
+
+    /* Reset & basics */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      padding-top: 80px;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+    h1, h2, h3 {
+      color: var(--heading-color);
+      transition: color 0.4s ease;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      box-shadow: 0 2px 10px var(--box-shadow);
+      transition: all 0.4s ease;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color 0.4s ease;
+      padding: 20px 0.5rem 0.5rem 0.5rem;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: clamp(1rem, 3vw, 2.5rem);
+    }
+    .nav-links a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.4s ease;
+      position: relative;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent-color);
+    }
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--accent-color);
+    }
+    
+    /* Mobile Navigation */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      padding: 8px;
+      border-radius: 6px;
+      background: rgba(106, 13, 173, 0.1);
+      transition: all 0.3s ease;
+      min-width: 44px;
+      min-height: 44px;
+      justify-content: center;
+      align-items: center;
+    }
+    .hamburger:hover {
+      background: rgba(106, 13, 173, 0.2);
+      transform: scale(1.05);
+    }
+    .hamburger span {
+      width: 28px;
+      height: 3px;
+      background: var(--text-color);
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(8px, -8px);
+    }
+    
+    /* Mobile menu */
+    .mobile-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--nav-bg);
+      backdrop-filter: blur(15px);
+      display: none;
+      flex-direction: column;
+      padding: 0.75rem 0;
+      box-shadow: 0 8px 32px var(--box-shadow);
+      border-radius: 0 0 12px 12px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+    .mobile-menu.active {
+      display: flex;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    .mobile-menu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .mobile-menu li {
+      padding: 0.75rem 2rem;
+      border-bottom: 1px solid rgba(106, 13, 173, 0.1);
+    }
+    .mobile-menu li:last-child {
+      border-bottom: none;
+    }
+    .mobile-menu a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      display: block;
+      padding: 0.25rem 0;
+    }
+    .mobile-menu a:hover,
+    .mobile-menu a.active {
+      color: var(--accent-color);
+      transform: translateX(8px);
+    }
+    
+    .theme-toggle-mobile {
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      color: var(--text-color);
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+      border-top: 2px solid rgba(106, 13, 173, 0.2);
+      margin-top: 0.5rem;
+    }
+    .theme-toggle-mobile:hover {
+      color: var(--accent-color);
+      background: rgba(106, 13, 173, 0.05);
+    }
+    
+    /* Responsive - Show hamburger on tablets and mobile */
+    @media (max-width: 1024px) {
+      .nav-links {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .nav-container {
+        position: relative;
+      }
+      .why-choose-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
+    }
+    
+    /* Mobile specific adjustments */
+    @media (max-width: 768px) {
+      .nav-container {
+        padding: 0 1rem;
+      }
+      .hamburger {
+        margin-right: 0.5rem;
+      }
+      .hero-section {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem 1rem;
+        text-align: center;
+      }
+      .hero-content {
+        text-align: center;
+      }
+      .hero-image {
+        order: -1;
+      }
+      .hero-image img {
+        max-width: 100%;
+        height: auto;
+      }
+      .hero-section h1 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+        word-wrap: break-word;
+        hyphens: auto;
+      }
+      .hero-section p {
+        font-size: 1rem;
+      }
+      main {
+        padding: 2rem 1rem;
+      }
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .why-choose-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
+      .back-to-top {
+        bottom: 20px !important;
+        right: 15px !important;
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 16px !important;
+        display: flex !important;
+      }
+      .back-to-top.show {
+        display: flex !important;
+      }
+      
+      /* Process steps mobile responsive */
+      .process-steps {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+      .step {
+        padding: 1rem;
+      }
+      .step-number {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 1.3rem;
+        margin-bottom: 0.75rem;
+      }
+    }
+
+    /* Small mobile screens */
+    @media (max-width: 480px) {
+      .process-steps {
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      .step {
+        padding: 0.75rem;
+      }
+      .step h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+      .step p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      box-shadow: 0 4px 15px var(--box-shadow);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    .back-to-top:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--box-shadow);
+    }
+    .back-to-top.show {
+      display: flex;
+    }
+    [data-theme="dark"] .back-to-top {
+      background: #8A3FC7;
+      box-shadow: 0 4px 15px rgba(138, 63, 199, 0.4);
+    }
+
+    /* Main content */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 2rem;
+    }
+    h1 {
+      font-size: 2.8rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-size: 1.8rem;
+      color: var(--accent-color);
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 0.25em;
+      margin-top: 2em;
+    }
+    
+    .hero-section {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      background: linear-gradient(135deg, #01a0c6, #6A0DAD);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      padding: 3rem 2rem;
+      border-radius: 15px;
+      margin-bottom: 3rem;
+      position: relative;
+      min-height: 400px;
+    }
+    
+    /* Optional overlay for better text readability when using images */
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .hero-section.with-image::before {
+      opacity: 0.3;
+    }
+    
+    .hero-section > * {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-content {
+      flex: 1;
+      text-align: left;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero-image img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 3;
+      display: block;
+    }
+    
+    .hero-section h1 {
+      color: white;
+      margin-bottom: 1rem;
+      font-size: 32px;
+      text-align: left;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    .hero-section p {
+      font-size: 1rem;
+      line-height: 1.6;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    .service-card {
+      background: rgba(106, 13, 173, 0.05);
+      padding: 2rem;
+      border-radius: 12px;
+      border-left: 4px solid var(--accent-color);
+      transition: all 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px var(--box-shadow);
+    }
+    .service-card h3 {
+      color: var(--accent-color);
+      margin-top: 0;
+      font-size: 1.4rem;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    .step {
+      text-align: center;
+      padding: 1.5rem;
+    }
+    .step-number {
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      background: var(--accent-color);
+      color: white;
+      border-radius: 50%;
+      line-height: 60px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      background: linear-gradient(135deg, #6A0DAD 0%, #01a0c6 100%);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="/" class="logo">
+        <img src="attached_assets/LENZarts_logo_1751534733182.png" alt="Lenz Arts" style="height: 50px; width: auto;">
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/art-materials">Art Materials</a></li>
+        <li><a href="/framing" class="active">Custom Framing</a></li>
+        <li><a href="/demos">Demos</a></li>
+        <li><a href="/gift-cards">Gift Cards</a></li>
+        <li><a href="/history">Our Story</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="mobile-menu" id="mobile-menu">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/art-materials">Art Materials</a></li>
+          <li><a href="/framing" class="active">Custom Framing</a></li>
+          <li><a href="/demos">Demos</a></li>
+          <li><a href="/gift-cards">Gift Cards</a></li>
+          <li><a href="/history">Our Story</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+        </ul>
+        <div class="theme-toggle-mobile" id="theme-toggle">
+          <span>Dark Mode</span>
+          <span>🌙</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="hero-section">
+      <div class="hero-content">
+        <h1>Museum-Quality Custom Framing</h1>
+        <p>Preserve and showcase your treasured artwork, photographs, and memorabilia with our expert custom framing services. Over 55 years of experience protecting what matters most to you.</p>
+      </div>
+      <div class="hero-image">
+        <img src="attached_assets/FramingDesignCounter2013-Julia-CROP_1751603453671.jpeg" alt="Professional custom framing services at Lenz Arts" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Lenz Arts Custom Framing Logo Section -->
+    <div style="text-align: center; margin: 3rem 0; padding: 2rem; background: rgba(106, 13, 173, 0.03); border-radius: 15px;">
+      <img src="attached_assets/lenzartscustomframing_1751620881831.jpg" alt="Lenz Arts - Art Supplies & Custom Picture Framing - Family-Owned & Operated Since 1968" style="max-width: 250px; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+      <p style="margin-top: 1rem; font-style: italic; color: var(--text-color); font-size: 0.9rem;">Proudly serving Santa Cruz since 1968</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Conservation Framing</h3>
+        <p>Museum-quality, archival framing using acid-free materials and UV-protective glazing to ensure your artwork survives for generations. Perfect for valuable art, family photos, and important documents.</p>
+        <ul style="margin-top: 1rem;">
+          <li>Archival matting and backing</li>
+          <li>UV-filtering glazing options</li>
+          <li>Reversible mounting techniques</li>
+          <li>Climate-controlled environment</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <h3>Custom Matting</h3>
+        <p>Professional mat cutting and design to perfectly complement your artwork. Choose from hundreds of colors and textures, with options for multiple openings and decorative techniques.</p>
+        <ul style="margin-top: 1rem;">
+          <li>Premium mat board selection</li>
+          <li>Multiple opening designs</li>
+          <li>Decorative mat techniques</li>
+          <li>Color matching consultation</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <h3>Frame Selection</h3>
+        <p>Extensive collection of frame styles from traditional to contemporary. Wood, metal, and specialty frames in every size and finish to match your decor and personal style.</p>
+        <ul style="margin-top: 1rem;">
+          <li>Hundreds of frame styles</li>
+          <li>Custom sizing available</li>
+          <li>Traditional and modern options</li>
+          <li>Expert style consultation</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <h3>Specialty Projects</h3>
+        <p>From oversized artwork to three-dimensional objects, we handle unique framing challenges with creative solutions and expert craftsmanship.</p>
+        <ul style="margin-top: 1rem;">
+          <li>Oversized artwork framing</li>
+          <li>Shadow boxes and display cases</li>
+          <li>Sports memorabilia framing</li>
+          <li>Wedding and memorial displays</li>
+        </ul>
+      </div>
+    </div>
+
+    <section>
+      <h2>Our Framing Process</h2>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Consultation</h3>
+          <p>Bring in your piece for a personalized design consultation. We'll discuss your vision, budget, and preservation needs.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Design</h3>
+          <p>Together we'll select the perfect frame, matting, and glazing options that complement your artwork and space.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Expert Crafting</h3>
+          <p>Our skilled framers carefully construct your piece using museum-quality materials and time-tested techniques.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Quality Check</h3>
+          <p>Every frame is inspected for quality and craftsmanship before being carefully packaged for pickup or delivery.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; margin: 4rem 0; padding: 3rem; background: rgba(106, 13, 173, 0.05); border-radius: 12px;">
+      <h2>Why Choose Lenz Arts for Framing?</h2>
+      <div class="why-choose-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem;">
+        <div>
+          <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">Master Craftsmen</h4>
+          <p>Our framers have decades of experience and ongoing training in the latest conservation techniques.</p>
+        </div>
+        <div>
+          <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">Premium Materials</h4>
+          <p>We use only archival, museum-quality materials to ensure your artwork is protected for generations.</p>
+        </div>
+        <div>
+          <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">Personal Service</h4>
+          <p>Every project receives individual attention and care, from initial consultation to final installation.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 2rem; background: linear-gradient(135deg, #01a0c6, #6A0DAD); color: white; border-radius: 12px; margin: 3rem 0;">
+      <h2 style="color: white; margin-bottom: 1rem;">Ready to Display Your Art with Style?</h2>
+      <p style="font-size: 1.1rem; margin-bottom: 2rem;">Visit our frame shop to view our work firsthand and collaborate with our experienced framing team.</p>
+      <a href="contact.html" style="display: inline-block; background: white; color: var(--accent-color); padding: 1rem 2rem; border-radius: 25px; text-decoration: none; font-weight: bold; transition: all 0.3s ease;">Contact Us Today</a>
+    </section>
+  </main>
+
+  <footer>
+    <div style="text-align: center;">
+      <div style="margin-bottom: 1rem;">
+        <a href="https://lenzarts.us5.list-manage.com/subscribe?u=0ea02606e000e69dd6d15a1f1&id=d15d10c33e" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: none; font-weight: 500; font-size: 0.9rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 1rem; border-radius: 20px; display: inline-block; transition: all 0.3s ease; border: 2px solid rgba(255, 255, 255, 0.3);" onmouseover="this.style.background='rgba(255, 255, 255, 0.3)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.2)'; this.style.transform='translateY(0)'">Sign up for our Email Newsletter!</a>
+      </div>
+      
+      <div style="margin-bottom: 1rem;">
+        <a href="/" style="color: white; text-decoration: none; margin: 0 0.75rem;">Home</a> |
+        <a href="/art-materials" style="color: white; text-decoration: none; margin: 0 0.75rem;">Art Materials</a> |
+        <a href="/framing" style="color: white; text-decoration: none; margin: 0 0.75rem;">Custom Framing</a> |
+        <a href="/demos" style="color: white; text-decoration: none; margin: 0 0.75rem;">Demos</a> |
+        <a href="/gift-cards" style="color: white; text-decoration: none; margin: 0 0.75rem;">Gift Cards</a> |
+        <a href="/history" style="color: white; text-decoration: none; margin: 0 0.75rem;">Our Story</a> |
+        <a href="/contact" style="color: white; text-decoration: none; margin: 0 0.75rem;">Contact Us</a>
+      </div>
+      <p>&copy;1999-2025 Lenz Arts, Inc. | <a href="/legal" style="color: white; text-decoration: none;">All Rights Reserved</a> | <a href="/privacy" style="color: white; text-decoration: none;">Privacy Statement</a><br>
+      <em>Lenz Arts • <a href="https://www.google.com/maps/place/142+River+St,+Santa+Cruz,+CA+95060" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: none;">142 River Street, Santa Cruz, CA 95060</a> • (831) 281-7637</em></p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <script>
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (event) => {
+      if (!hamburger.contains(event.target) && !mobileMenu.contains(event.target)) {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+      }
+    });
+
+    // Theme toggle functionality
+    const toggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+    const toggleText = toggleBtn.querySelector('span:first-child');
+
+    // Load theme from localStorage or default to light
+    if(localStorage.getItem('theme') === 'dark') {
+      body.setAttribute('data-theme', 'dark');
+      toggleText.textContent = 'Light Mode';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      const currentTheme = body.getAttribute('data-theme');
+      if(currentTheme === 'dark') {
+        body.removeAttribute('data-theme');
+        toggleText.textContent = 'Dark Mode';
+        localStorage.setItem('theme', 'light');
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        toggleText.textContent = 'Light Mode';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+
+    // Back to top functionality
+    const backToTopButton = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('show');
+      } else {
+        backToTopButton.classList.remove('show');
+      }
+    });
+
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+</body>
+</html>

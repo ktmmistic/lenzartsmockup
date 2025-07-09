@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gift Cards | Lenz Arts - Perfect for Artists | Santa Cruz, CA</title>
+  <meta name="description" content="Give the gift of creativity with Lenz Arts gift cards. Perfect for artists of all levels, available in any amount for art supplies and custom framing services in Santa Cruz.">
+  <link rel="icon" type="image/png" href="attached_assets/LENZarts_logo_1751534733182.png">
+  <style>
+    /* CSS Variables for light and dark themes */
+    :root {
+      --bg-color: #f9f7f1;
+      --text-color: #3a3a3a;
+      --heading-color: #2c2c2c;
+      --accent-color: #6A0DAD;
+      --link-color: #00A3E0;
+      --link-hover: #0082B8;
+      --box-shadow: rgba(106, 13, 173, 0.15);
+      --nav-bg: rgba(249, 247, 241, 0.95);
+    }
+    [data-theme="dark"] {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --heading-color: #f1f1f1;
+      --accent-color: #8A3FC7;
+      --link-color: #33B7E8;
+      --link-hover: #5BC4ED;
+      --box-shadow: rgba(138, 63, 199, 0.4);
+      --nav-bg: rgba(18, 18, 18, 0.95);
+    }
+
+    /* Reset & basics */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      padding-top: 80px;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+    h1, h2, h3 {
+      color: var(--heading-color);
+      transition: color 0.4s ease;
+    }
+
+    /* Navigation */
+    nav {
+      background: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 10px var(--box-shadow);
+      transition: background-color 0.4s ease;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+      height: 80px;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color 0.4s ease;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: clamp(1rem, 3vw, 2.5rem);
+    }
+    .nav-links a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--accent-color);
+    }
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--accent-color);
+    }
+    
+    /* Mobile Navigation */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      padding: 8px;
+      border-radius: 6px;
+      background: rgba(106, 13, 173, 0.1);
+      transition: all 0.3s ease;
+      min-width: 44px;
+      min-height: 44px;
+      justify-content: center;
+      align-items: center;
+    }
+    .hamburger:hover {
+      background: rgba(106, 13, 173, 0.2);
+      transform: scale(1.05);
+    }
+    .hamburger span {
+      width: 28px;
+      height: 3px;
+      background: var(--text-color);
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(8px, -8px);
+    }
+    
+    /* Mobile menu */
+    .mobile-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--nav-bg);
+      backdrop-filter: blur(15px);
+      display: none;
+      flex-direction: column;
+      padding: 0.75rem 0;
+      box-shadow: 0 8px 32px var(--box-shadow);
+      border-radius: 0 0 12px 12px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+    .mobile-menu.active {
+      display: flex;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    .mobile-menu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .mobile-menu li {
+      padding: 0.75rem 2rem;
+      border-bottom: 1px solid rgba(106, 13, 173, 0.1);
+    }
+    .mobile-menu li:last-child {
+      border-bottom: none;
+    }
+    .mobile-menu a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      display: block;
+      padding: 0.25rem 0;
+    }
+    .mobile-menu a:hover,
+    .mobile-menu a.active {
+      color: var(--accent-color);
+      transform: translateX(8px);
+    }
+    .theme-toggle-mobile {
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      color: var(--text-color);
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+      border-top: 2px solid rgba(106, 13, 173, 0.2);
+      margin-top: 0.5rem;
+      border-top: 1px solid rgba(106, 13, 173, 0.2);
+      margin-top: 0.25rem;
+    }
+    .theme-toggle-mobile:hover {
+      color: var(--accent-color);
+      background: rgba(106, 13, 173, 0.05);
+    }
+    
+    /* Theme toggle in mobile menu */
+    .theme-toggle-mobile {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      padding: 0.75rem 2rem;
+      color: var(--text-color);
+      font-weight: 500;
+    }
+    .theme-toggle-mobile:hover {
+      color: var(--accent-color);
+      background: rgba(106, 13, 173, 0.05);
+    }
+    
+    /* Responsive - Show hamburger on tablets and mobile */
+    @media (max-width: 1024px) {
+      .nav-links {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .nav-container {
+        position: relative;
+      }
+    }
+    
+    /* Mobile specific adjustments */
+    @media (max-width: 768px) {
+      .nav-container {
+        padding: 0 1rem;
+      }
+      .hamburger {
+        margin-right: 0.5rem;
+      }
+      .hero-section {
+        flex-direction: column;
+        padding: 2rem 1rem;
+        text-align: center;
+        min-height: auto;
+        gap: 1.5rem;
+      }
+      .hero-content {
+        text-align: center;
+        max-width: 100%;
+        order: 1;
+      }
+      .hero-image {
+        max-width: 100%;
+        order: 2;
+        margin-top: 1rem;
+      }
+      .hero-image img {
+        max-height: 250px;
+        border-radius: 12px;
+      }
+      .hero-section h1 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+        word-wrap: break-word;
+        hyphens: auto;
+      }
+      .hero-section p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      .hero-ctas {
+        justify-content: center;
+      }
+      .cta-button {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+        min-width: 100px;
+      }
+      main {
+        padding: 2rem 1rem;
+      }
+      .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .back-to-top {
+        bottom: 20px !important;
+        right: 15px !important;
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 16px !important;
+        display: flex !important;
+      }
+      .back-to-top.show {
+        display: flex !important;
+      }
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      box-shadow: 0 4px 15px var(--box-shadow);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    .back-to-top:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--box-shadow);
+    }
+    .back-to-top.show {
+      display: flex;
+    }
+    [data-theme="dark"] .back-to-top {
+      background: #8A3FC7;
+      box-shadow: 0 4px 15px rgba(138, 63, 199, 0.4);
+    }
+
+    /* Main content */
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2.8rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    
+    /* Hero section styling - copied from demos page */
+    .hero-section {
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #01a0c6, #6A0DAD);
+      color: white;
+      padding: 3rem 2rem;
+      border-radius: 15px;
+      margin-bottom: 3rem;
+      min-height: 400px;
+      gap: 2rem;
+      overflow: hidden;
+    }
+    
+    .hero-content {
+      flex: 1;
+      max-width: 600px;
+      z-index: 2;
+    }
+    
+    .hero-image {
+      flex: 1;
+      max-width: 50%;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      max-height: 350px;
+      object-fit: contain;
+      object-position: center;
+      border-radius: 10px;
+    }
+    
+    .hero-section h1 {
+      color: white;
+      margin-bottom: 1rem;
+      font-size: 32px;
+      text-align: left;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .hero-section p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+    
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .cta-button {
+      background: var(--accent-color);
+      color: white;
+      padding: 0.875rem 2rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      border: 2px solid var(--accent-color);
+      display: inline-block;
+      text-align: center;
+      min-width: 120px;
+      box-shadow: 0 4px 15px rgba(106, 13, 173, 0.3);
+    }
+    
+    .cta-button:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(106, 13, 173, 0.4);
+    }
+    
+    .cta-button.secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+    
+    .cta-button.secondary:hover {
+      background: white;
+      color: var(--accent-color);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+    }
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Header section styling - matches contact page */
+    #gift-cards {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 2rem;
+    }
+
+    /* Section styling - matches contact page */
+    #gift-cards section {
+      margin-bottom: 2rem;
+    }
+
+    #gift-cards h2 {
+      font-size: 1.8rem;
+      color: var(--accent-color);
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 0.25em;
+      margin-bottom: 1rem;
+    }
+
+    /* Override section styling for benefits section specifically */
+    #gift-card-benefits {
+      background: var(--bg-color) !important;
+      border: 2px solid var(--accent-color) !important;
+      border-radius: 12px !important;
+      padding: 1.5rem !important;
+      margin: 1.5rem 0 !important;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+      max-width: 700px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    #gift-card-benefits h2 {
+      color: var(--accent-color) !important;
+      text-align: center !important;
+      margin-bottom: 1rem !important;
+      border: none !important;
+      padding: 0 !important;
+      font-size: 1.5rem !important;
+    }
+
+    #gift-card-benefits ul {
+      list-style: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 0.5rem !important;
+    }
+
+    #gift-card-benefits li {
+      padding: 0.5rem 0.75rem !important;
+      margin: 0 !important;
+      background: rgba(1, 160, 198, 0.05) !important;
+      border-radius: 6px !important;
+      font-size: 0.9rem !important;
+      transition: all 0.3s ease !important;
+      color: var(--text-color) !important;
+      display: flex !important;
+      align-items: center !important;
+      position: relative !important;
+    }
+
+    #gift-card-benefits li:before {
+      content: "✓" !important;
+      color: #01a0c6 !important;
+      font-weight: bold !important;
+      font-size: 1.1rem !important;
+      margin-right: 0.5rem !important;
+      flex-shrink: 0 !important;
+    }
+
+    #gift-card-benefits li:hover {
+      background: rgba(1, 160, 198, 0.1) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* Mobile responsive for benefits */
+    @media (max-width: 768px) {
+      #gift-card-benefits ul {
+        grid-template-columns: 1fr !important;
+        gap: 0.4rem !important;
+      }
+      
+      #gift-card-benefits li {
+        font-size: 0.85rem !important;
+        padding: 0.4rem 0.6rem !important;
+      }
+      
+      #gift-card-benefits {
+        padding: 1rem !important;
+        margin: 1rem 0 !important;
+      }
+    }
+
+    .gift-card-visual {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .gift-card-purchase {
+      margin: 1.5rem 0;
+      background: rgba(106, 13, 173, 0.05);
+      border-radius: 12px;
+      padding: 1.5rem 1rem;
+      border: 2px solid var(--accent-color);
+    }
+
+    .gift-card-selector {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .gift-card-image-large {
+      text-align: center;
+      position: sticky;
+      top: 100px;
+      align-self: start;
+      max-height: calc(100vh - 120px);
+      overflow: hidden;
+    }
+
+    .gift-card-image-large img {
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .purchase-controls {
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      text-align: center;
+      background: white;
+      padding: 1.25rem;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    [data-theme="dark"] .purchase-controls {
+      background: #1a1a1a;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .purchase-controls h2 {
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+      font-size: 1.6rem;
+    }
+
+    .purchase-controls p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      color: var(--text-color);
+    }
+
+    .amount-selector {
+      margin: 0.5rem 0;
+    }
+
+    .amount-selector label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: var(--heading-color);
+    }
+
+    .amount-selector select {
+      width: 100%;
+      max-width: 350px;
+      padding: 1rem;
+      border: 2px solid var(--accent-color);
+      border-radius: 8px;
+      font-size: 1rem;
+      background: var(--bg-color);
+      color: var(--text-color);
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236A0DAD' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 1rem;
+      padding-right: 3rem;
+    }
+
+    [data-theme="dark"] .amount-selector select {
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238A3FC7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-color: #2a2a2a;
+      border-color: #8A3FC7;
+      color: #ffffff;
+    }
+
+    .amount-selector select:focus {
+      outline: none;
+      border-color: #01a0c6;
+      box-shadow: 0 0 8px rgba(1, 160, 198, 0.3);
+    }
+
+    .amount-selector select option {
+      background: var(--bg-color);
+      color: var(--text-color);
+      padding: 0.5rem;
+    }
+
+    [data-theme="dark"] .amount-selector select option {
+      background: #2a2a2a;
+      color: #ffffff;
+    }
+
+    .selected-amount {
+      margin: 0.25rem 0;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--accent-color);
+    }
+
+    .delivery-options {
+      margin: 0.5rem 0;
+    }
+
+    .delivery-label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: var(--heading-color);
+    }
+
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .radio-option {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      font-size: 1rem;
+      color: var(--text-color);
+    }
+
+    .radio-option input[type="radio"] {
+      display: none;
+    }
+
+    .radio-custom {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--accent-color);
+      border-radius: 50%;
+      margin-right: 0.75rem;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .radio-option input[type="radio"]:checked + .radio-custom {
+      background: var(--accent-color);
+    }
+
+    .radio-option input[type="radio"]:checked + .radio-custom::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .recipient-info {
+      margin: 1rem 0;
+    }
+
+    .input-label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: var(--heading-color);
+    }
+
+    .recipient-input {
+      width: 100%;
+      max-width: 350px;
+      padding: 1rem;
+      border: 2px solid var(--accent-color);
+      border-radius: 8px;
+      font-size: 1rem;
+      background: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    .recipient-input:focus {
+      outline: none;
+      border-color: #01a0c6;
+      box-shadow: 0 0 8px rgba(1, 160, 198, 0.3);
+    }
+
+    .paypal-container {
+      margin: 1rem 0;
+      min-height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(1, 160, 198, 0.05);
+      border-radius: 8px;
+      padding: 1rem;
+      border: 2px dashed var(--accent-color);
+    }
+
+    .fallback-purchase {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: rgba(1, 160, 198, 0.1);
+      border-radius: 8px;
+      font-size: 0.95rem;
+    }
+
+    .fallback-purchase p {
+      margin: 0.5rem 0;
+    }
+
+    .fallback-purchase strong {
+      color: var(--accent-color);
+    }
+
+    @media (max-width: 768px) {
+      .gift-card-selector {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .gift-card-image-large img {
+        max-width: 200px !important;
+      }
+      
+      .purchase-controls h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    .benefits {
+      background: rgba(106, 13, 173, 0.05);
+      padding: 1rem;
+      border-radius: 10px;
+      margin: 1.5rem 0;
+    }
+    .benefits h2 {
+      color: var(--accent-color);
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    .benefits ul {
+      list-style: none;
+      padding: 0;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .benefits li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(106, 13, 173, 0.1);
+      position: relative;
+      padding-left: 1.5rem;
+      font-size: 0.9rem;
+    }
+    .benefits li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+    .benefits li:last-child {
+      border-bottom: none;
+    }
+
+    .purchase-info {
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, #01a0c6, #6A0DAD);
+      color: white;
+      border-radius: 12px;
+      margin: 3rem 0;
+    }
+    .purchase-info h2 {
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    /* Responsive Design for Mobile */
+    @media (max-width: 768px) {
+      .gift-card-purchase {
+        padding: 2rem 1rem;
+      }
+      
+      .gift-card-selector {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+      }
+      
+      .gift-card-image-large {
+        position: static;
+        order: 1;
+        max-height: none;
+        overflow: visible;
+      }
+      
+      .purchase-controls {
+        order: 2;
+        min-height: auto;
+      }
+      
+      .purchase-controls h2 {
+        font-size: 1.5rem;
+      }
+      
+      .amount-selector select {
+        font-size: 1rem;
+      }
+      
+      .selected-amount {
+        font-size: 2rem;
+      }
+      
+      .radio-group {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gift-card-purchase {
+        margin: 2rem 0;
+        padding: 1.5rem 1rem;
+      }
+      
+
+      
+      .hero-section h1 {
+        font-size: 1.6rem;
+      }
+      
+      .selected-amount {
+        font-size: 1.8rem;
+      }
+    }
+
+    footer {
+      background: linear-gradient(135deg, #6A0DAD 0%, #01a0c6 100%);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="/" class="logo">
+        <img src="attached_assets/LENZarts_logo_1751534733182.png" alt="Lenz Arts" style="height: 40px; width: auto;">
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/art-materials">Art Materials</a></li>
+        <li><a href="/framing">Custom Framing</a></li>
+        <li><a href="/demos">Demos</a></li>
+        <li><a href="/gift-cards" class="active">Gift Cards</a></li>
+        <li><a href="/history">Our Story</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="mobile-menu" id="mobile-menu">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/art-materials">Art Materials</a></li>
+          <li><a href="/framing">Custom Framing</a></li>
+          <li><a href="/demos">Demos</a></li>
+          <li><a href="/gift-cards" class="active">Gift Cards</a></li>
+          <li><a href="/history">Our Story</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+        </ul>
+        <div class="theme-toggle-mobile" id="theme-toggle">
+          <span>Dark Mode</span>
+          <span>🌙</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1>Gift Cards</h1>
+      <p>Make someone super happy with a Lenz Arts Gift Card! Whether you're celebrating a special occasion or just want to brighten someone's day, a Lenz Arts Gift Card is the perfect choice.</p>
+      <div class="hero-ctas">
+        <a href="#purchase-gift-card" class="cta-button">Buy Gift Card</a>
+        <a href="#gift-card-info" class="cta-button secondary">Learn More</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="attached_assets/Liquitex-Aisle_1751601703941.jpg" alt="Professional art supplies available with gift cards" loading="lazy">
+    </div>
+  </div>
+
+  <section id="gift-cards">
+
+    <section id="purchase-gift-card">
+      <h2>Purchase Gift Card</h2>
+      <div class="gift-card-purchase" id="purchase-section">
+      <div class="gift-card-selector">
+        <div class="gift-card-image-large">
+          <img src="attached_assets/GiftCardLenzArts-197px_1751592556532.jpg" alt="Lenz Arts Gift Card" style="width: 200px; height: auto; border-radius: 10px; padding: 12px; background: white; box-shadow: 0 6px 15px rgba(0,0,0,0.15);">
+        </div>
+        
+        <div class="purchase-controls">
+          <h2>Purchase Gift Card</h2>
+          <p>Select amount and pay securely with PayPal</p>
+          
+          <div class="amount-selector">
+            <label for="giftCardAmount">Choose Amount:</label>
+            <select id="giftCardAmount" onchange="updateSelectedAmount()">
+              <option value="50" selected>$50 Gift Card</option>
+              <option value="75">$75 Gift Card</option>
+              <option value="100">$100 Gift Card</option>
+              <option value="200">$200 Gift Card</option>
+              <option value="350">$350 Gift Card</option>
+              <option value="500">$500 Gift Card</option>
+            </select>
+          </div>
+          
+          <div class="selected-amount">
+            <span id="displayAmount">$50.00</span>
+          </div>
+
+          <div class="delivery-options">
+            <label class="delivery-label">Delivery Method:</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="delivery" value="pickup" checked>
+                <span class="radio-custom"></span>
+                Pickup at Lenz Arts
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="delivery" value="mail">
+                <span class="radio-custom"></span>
+                Mail to address
+              </label>
+            </div>
+          </div>
+
+          <div class="recipient-info">
+            <label for="recipientName" class="input-label">Gift Card Recipient Name:</label>
+            <input type="text" id="recipientName" placeholder="Enter recipient's name" class="recipient-input">
+          </div>
+          
+          <div id="paypal-button-container" class="paypal-container">
+            <!-- PayPal button will be inserted here -->
+          </div>
+          
+          <div class="fallback-purchase">
+            <p style="text-align: center; margin-top: 1rem; color: var(--text-color);">PayPal payment processing...</p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section id="gift-card-benefits">
+      <h2>Why Choose Lenz Arts Gift Cards?</h2>
+      <ul>
+        <li>No expiration date - use whenever inspiration strikes</li>
+        <li>Valid for all art supplies and custom framing services</li>
+        <li>Can be combined with sales and promotions</li>
+        <li>Expert staff help recipients choose the perfect supplies</li>
+        <li>Beautiful presentation - comes in elegant gift envelope</li>
+        <li>Can be purchased in-store or by phone</li>
+        <li>Reloadable - add more value anytime</li>
+        <li>Perfect for artists, students, and creative hobbyists</li>
+      </ul>
+    </section>
+
+    <section id="contact-purchase">
+      <h2>Other Ways to Purchase</h2>
+      <p><strong>Call us:</strong> <a href="tel:831-281-7637" style="color: var(--accent-color);">(831) 281-7637</a></p>
+      <p><strong>Visit our store:</strong> <a href="https://maps.google.com/?q=142+River+Street,+Santa+Cruz,+CA" target="_blank" style="color: var(--accent-color);">142 River Street, Santa Cruz, CA</a></p>
+    </section>
+  </section>
+
+  <footer>
+    <div style="text-align: center;">
+      <div style="margin-bottom: 1rem;">
+        <a href="https://lenzarts.us5.list-manage.com/subscribe?u=0ea02606e000e69dd6d15a1f1&id=d15d10c33e" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: none; font-weight: 500; font-size: 0.9rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 1rem; border-radius: 20px; display: inline-block; transition: all 0.3s ease; border: 2px solid rgba(255, 255, 255, 0.3);" onmouseover="this.style.background='rgba(255, 255, 255, 0.3)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.2)'; this.style.transform='translateY(0)'">Sign up for our Email Newsletter!</a>
+      </div>
+      
+      <div style="margin-bottom: 1rem;">
+        <a href="/" style="color: white; text-decoration: none; margin: 0 0.75rem;">Home</a> |
+        <a href="art-materials.html" style="color: white; text-decoration: none; margin: 0 0.75rem;">Art Materials</a> |
+        <a href="framing.html" style="color: white; text-decoration: none; margin: 0 0.75rem;">Custom Framing</a> |
+        <a href="demos.html" style="color: white; text-decoration: none; margin: 0 0.75rem;">Demos</a> |
+        <a href="gift-cards.html" style="color: white; text-decoration: none; margin: 0 0.75rem;">Gift Cards</a> |
+        <a href="history.html" style="color: white; text-decoration: none; margin: 0 0.75rem;">Our Story</a> |
+        <a href="contact.html" style="color: white; text-decoration: none; margin: 0 0.75rem;">Contact Us</a>
+      </div>
+      <p>&copy;1999-2025 Lenz Arts, Inc. | <a href="legal.html" style="color: white; text-decoration: none;">All Rights Reserved</a> | <a href="privacy.html" style="color: white; text-decoration: none;">Privacy Statement</a><br>
+      <em>Lenz Arts • <a href="https://www.google.com/maps/place/142+River+St,+Santa+Cruz,+CA+95060" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: none;">142 River Street, Santa Cruz, CA 95060</a> • (831) 281-7637</em></p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <script>
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (event) => {
+      if (!hamburger.contains(event.target) && !mobileMenu.contains(event.target)) {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+      }
+    });
+
+    // Theme toggle functionality
+    const toggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+    const toggleText = toggleBtn.querySelector('span:first-child');
+
+    // Load theme from localStorage or default to light
+    if(localStorage.getItem('theme') === 'dark') {
+      body.setAttribute('data-theme', 'dark');
+      toggleText.textContent = 'Light Mode';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      const currentTheme = body.getAttribute('data-theme');
+      if(currentTheme === 'dark') {
+        body.removeAttribute('data-theme');
+        toggleText.textContent = 'Dark Mode';
+        localStorage.setItem('theme', 'light');
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        toggleText.textContent = 'Light Mode';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+
+    // Back to top functionality
+    const backToTopButton = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('show');
+      } else {
+        backToTopButton.classList.remove('show');
+      }
+    });
+
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    // Gift Card Purchase Functions
+    let currentAmount = 50; // Default to $50
+
+    function updateSelectedAmount() {
+      const select = document.getElementById('giftCardAmount');
+      const displayAmount = document.getElementById('displayAmount');
+      currentAmount = parseFloat(select.value);
+      displayAmount.textContent = `$${currentAmount.toFixed(2)}`;
+      
+      // If PayPal is available, reinitialize the button with new amount
+      if (window.paypal) {
+        initializePayPalButton();
+      }
+    }
+
+    // Initialize PayPal Button (will be called when PayPal SDK loads)
+    function initializePayPalButton() {
+      const container = document.getElementById('paypal-button-container');
+      container.innerHTML = ''; // Clear existing button
+      
+      if (window.paypal) {
+        window.paypal.Buttons({
+          createOrder: function(data, actions) {
+            return actions.order.create({
+              purchase_units: [{
+                amount: {
+                  value: currentAmount.toString(),
+                  currency_code: 'USD'
+                },
+                description: `Lenz Arts Gift Card - $${currentAmount.toFixed(2)}`
+              }]
+            });
+          },
+          onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+              alert(`Thank you for your purchase! Your Lenz Arts gift card for $${currentAmount.toFixed(2)} has been processed. You will receive an email confirmation shortly. Please call us at (831) 281-7637 to arrange pickup of your physical gift card.`);
+            });
+          },
+          onError: function(err) {
+            console.error('PayPal Error:', err);
+            alert('Payment failed. Please try again or call us at (831) 281-7637 to complete your purchase.');
+          }
+        }).render('#paypal-button-container');
+      } else {
+        // PayPal not available, show message
+        container.innerHTML = '<p style="text-align: center; color: var(--text-color); font-style: italic;">PayPal integration requires API credentials.<br>Please use the contact options below to purchase.</p>';
+      }
+    }
+
+    // Try to load PayPal SDK (will only work with valid credentials)
+    function loadPayPalSDK() {
+      const PAYPAL_CLIENT_ID = 'YOUR_PAYPAL_CLIENT_ID_HERE'; // Replace with actual client ID
+      
+      if (PAYPAL_CLIENT_ID && PAYPAL_CLIENT_ID !== 'YOUR_PAYPAL_CLIENT_ID_HERE') {
+        // Load PayPal SDK with real credentials
+        const script = document.createElement('script');
+        script.src = `https://www.paypal.com/sdk/js?client-id=${PAYPAL_CLIENT_ID}&currency=USD`;
+        script.onload = function() {
+          initializePayPalButton();
+        };
+        script.onerror = function() {
+          initializePayPalButton(); // Show fallback message
+        };
+        document.head.appendChild(script);
+      } else {
+        // No credentials provided, show fallback message
+        setTimeout(initializePayPalButton, 100);
+      }
+    }
+
+    // Initialize when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      updateSelectedAmount(); // Set initial display
+      loadPayPalSDK(); // Try to load PayPal
+    });
+  </script>
+</body>
+</html>

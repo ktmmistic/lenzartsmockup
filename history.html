@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Story | Lenz Arts - Family Business Since 1968 | Santa Cruz, CA</title>
+  <meta name="description" content="Discover the rich history of Lenz Arts, a family-owned art supply store serving Santa Cruz since 1968. Learn about our journey, milestones, and commitment to the local art community.">
+  <link rel="icon" type="image/png" href="attached_assets/LENZarts_logo_1751534733182.png">
+  <style>
+    /* CSS Variables for light and dark themes */
+    :root {
+      --bg-color: #f9f7f1;
+      --text-color: #3a3a3a;
+      --heading-color: #2c2c2c;
+      --accent-color: #6A0DAD;
+      --link-color: #00A3E0;
+      --link-hover: #0082B8;
+      --box-shadow: rgba(106, 13, 173, 0.15);
+      --nav-bg: rgba(249, 247, 241, 0.95);
+    }
+    [data-theme="dark"] {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --heading-color: #f1f1f1;
+      --accent-color: #8A3FC7;
+      --link-color: #33B7E8;
+      --link-hover: #5BC4ED;
+      --box-shadow: rgba(138, 63, 199, 0.4);
+      --nav-bg: rgba(18, 18, 18, 0.95);
+    }
+
+    /* Reset & basics */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      padding-top: 80px;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+    h1, h2, h3 {
+      color: var(--heading-color);
+      transition: color 0.4s ease;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      box-shadow: 0 2px 10px var(--box-shadow);
+      transition: all 0.4s ease;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color 0.4s ease;
+      padding: 20px 0.5rem 0.5rem 0.5rem;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: clamp(1rem, 3vw, 2.5rem);
+    }
+    .nav-links a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.4s ease;
+      position: relative;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent-color);
+    }
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--accent-color);
+    }
+
+    /* Hamburger menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      padding: 8px;
+      border-radius: 6px;
+      background: rgba(106, 13, 173, 0.1);
+      transition: all 0.3s ease;
+      min-width: 44px;
+      min-height: 44px;
+      justify-content: center;
+      align-items: center;
+    }
+    .hamburger:hover {
+      background: rgba(106, 13, 173, 0.2);
+      transform: scale(1.05);
+    }
+    .hamburger span {
+      width: 28px;
+      height: 3px;
+      background: var(--text-color);
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(8px, -8px);
+    }
+    .mobile-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      display: none;
+      flex-direction: column;
+      padding: 0.75rem 0;
+      box-shadow: 0 2px 10px var(--box-shadow);
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+    .mobile-menu.active {
+      display: flex;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    .mobile-menu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .mobile-menu li {
+      padding: 0.75rem 2rem;
+      border-bottom: 1px solid rgba(106, 13, 173, 0.1);
+    }
+    .mobile-menu li:last-child {
+      border-bottom: none;
+    }
+    .mobile-menu a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      display: block;
+      padding: 0.25rem 0;
+    }
+    .mobile-menu a:hover,
+    .mobile-menu a.active {
+      color: var(--accent-color);
+      transform: translateX(8px);
+    }
+    .theme-toggle-mobile {
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      color: var(--text-color);
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+      border-top: 2px solid rgba(106, 13, 173, 0.2);
+      margin-top: 0.5rem;
+    }
+    .theme-toggle-mobile:hover {
+      color: var(--accent-color);
+      background: rgba(106, 13, 173, 0.05);
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      box-shadow: 0 4px 15px var(--box-shadow);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    .back-to-top:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--box-shadow);
+    }
+    .back-to-top.show {
+      display: flex;
+    }
+    [data-theme="dark"] .back-to-top {
+      background: #8A3FC7;
+      box-shadow: 0 4px 15px rgba(138, 63, 199, 0.4);
+    }
+
+    @media (max-width: 1024px) {
+      .nav-links {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .nav-container {
+        position: relative;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        padding: 0 1rem;
+      }
+      .hamburger {
+        margin-right: 0.5rem;
+      }
+      }
+      .hero-section {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem 1rem;
+        text-align: center;
+      }
+      .hero-content {
+        text-align: center;
+      }
+      .hero-image {
+        order: -1;
+      }
+      .hero-image img {
+        max-width: 100%;
+        height: auto;
+      }
+      .hero-section h1 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+        word-wrap: break-word;
+        hyphens: auto;
+      }
+      .hero-section p {
+        font-size: 1rem;
+      }
+      .back-to-top {
+        bottom: 20px !important;
+        right: 15px !important;
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 16px !important;
+        display: flex !important;
+      }
+      .back-to-top.show {
+        display: flex !important;
+      }
+    }
+
+    /* Main content */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 2rem;
+    }
+    h1 {
+      font-size: 2.8rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--accent-color);
+    }
+    h2 {
+      font-size: 1.8rem;
+      color: var(--accent-color);
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 0.25em;
+      margin-top: 2em;
+      margin-bottom: 1rem;
+    }
+
+    /* Make "A Little History" heading purple */
+    .story-section h2 {
+      color: var(--accent-color);
+      border-bottom: 2px solid var(--accent-color);
+    }
+
+    /* Story sections */
+    .hero-section {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      background: linear-gradient(135deg, #01a0c6, #6A0DAD);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      padding: 3rem 2rem;
+      border-radius: 15px;
+      margin-bottom: 3rem;
+      position: relative;
+      min-height: 400px;
+    }
+    
+    /* Optional overlay for better text readability when using images */
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 15px;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .hero-section.with-image::before {
+      opacity: 1;
+    }
+    
+    .hero-section > * {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-content {
+      flex: 1;
+      text-align: left;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero-image img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 3;
+      display: block;
+    }
+    
+    .hero-section h1 {
+      color: white;
+      margin-bottom: 1rem;
+      font-size: 32px;
+      text-align: left;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    .hero-section p {
+      font-size: 1rem;
+      line-height: 1.6;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .story-section {
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: rgba(106, 13, 173, 0.05);
+      border-radius: 12px;
+    }
+
+    .historical-photos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: rgba(1, 160, 198, 0.05);
+      border-radius: 12px;
+      border-left: 4px solid var(--accent-color);
+    }
+
+    .photo-item {
+      text-align: center;
+    }
+
+    .photo-item img {
+      width: 100%;
+      max-width: 200px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .photo-item img:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .photo-caption {
+      margin-top: 1rem;
+      font-style: italic;
+      color: var(--accent-color);
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    /* Dark theme adjustments for historical photos */
+    [data-theme="dark"] .historical-photos {
+      background: rgba(138, 63, 199, 0.1);
+    }
+
+    [data-theme="dark"] .photo-item img {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    [data-theme="dark"] .photo-item img:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Mobile responsive for historical photos */
+    @media (max-width: 768px) {
+      .historical-photos {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1rem;
+      }
+      
+      .photo-item img {
+        max-width: 180px;
+      }
+    }
+
+    /* Tablet responsive for historical photos */
+    @media (max-width: 992px) and (min-width: 769px) {
+      .historical-photos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+      
+      .photo-item:nth-child(3) {
+        grid-column: 1 / -1;
+        justify-self: center;
+      }
+    }
+
+    .news-section {
+      margin-bottom: 3rem;
+    }
+
+    .section-intro {
+      font-style: italic;
+      color: var(--accent-color);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .news-category {
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: rgba(1, 160, 198, 0.05);
+      border-radius: 12px;
+      border-left: 4px solid var(--accent-color);
+    }
+
+    .news-category h3 {
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+
+    .news-articles {
+      margin-top: 2rem;
+    }
+
+    .news-item {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    [data-theme="dark"] .news-item {
+      background: #1a1a1a;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .news-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .news-item h4 {
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .news-meta {
+      font-weight: bold;
+      color: var(--link-color);
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .news-item.special {
+      background: linear-gradient(135deg, rgba(1, 160, 198, 0.1), rgba(106, 13, 173, 0.1));
+      border: 2px solid var(--accent-color);
+    }
+
+    .news-item.special h4 a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .news-item.special h4 a:hover {
+      color: var(--link-hover);
+      text-decoration: underline;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: var(--accent-color);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      margin-top: 12px;
+      margin-right: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(106, 13, 173, 0.2);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(106, 13, 173, 0.3);
+      text-decoration: none;
+      color: white;
+    }
+
+    .cta-button.secondary {
+      background: transparent;
+      color: var(--accent-color);
+      border: 2px solid var(--accent-color);
+      font-weight: 500;
+      box-shadow: none;
+    }
+
+    .cta-button.secondary:hover {
+      background: var(--accent-color);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(106, 13, 173, 0.3);
+    }
+
+    [data-theme="dark"] .cta-button.secondary {
+      color: #8A3FC7;
+      border-color: #8A3FC7;
+    }
+
+    [data-theme="dark"] .cta-button.secondary:hover {
+      background: #8A3FC7;
+      color: white;
+    }
+
+    .news-item p {
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+
+    .news-item em {
+      color: var(--text-color);
+      opacity: 0.7;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #01a0c6 0%, #6A0DAD 100%);
+      color: white;
+      text-align: center;
+      padding: 3rem 2rem 2rem;
+      margin-top: 4rem;
+      font-size: 0.85rem;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem 2rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .footer-nav a {
+      color: white;
+      text-decoration: underline;
+      margin: 0 0.75rem;
+      transition: opacity 0.3s ease;
+    }
+    .footer-nav a:hover {
+      opacity: 0.8;
+    }
+    
+    @media (max-width: 768px) {
+      .footer-nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+      .footer-nav a {
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+      <a href="/" class="logo">
+        <img src="attached_assets/LENZarts_logo_1751534733182.png" alt="Lenz Arts" style="height: 50px; width: auto;">
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/art-materials">Art Materials</a></li>
+        <li><a href="/framing">Custom Framing</a></li>
+        <li><a href="/demos">Demos</a></li>
+        <li><a href="/gift-cards">Gift Cards</a></li>
+        <li><a href="/history" class="active">Our Story</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="mobile-menu" id="mobile-menu">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/art-materials">Art Materials</a></li>
+          <li><a href="/framing">Custom Framing</a></li>
+          <li><a href="/demos">Demos</a></li>
+          <li><a href="/gift-cards">Gift Cards</a></li>
+          <li><a href="/history" class="active">Our Story</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+        </ul>
+        <div class="theme-toggle-mobile" id="theme-toggle">
+          <span>Dark Mode</span>
+          <span>🌙</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="hero-section">
+      <div class="hero-content">
+        <h1>Our Story</h1>
+        <p>The story of Lenz Arts—a family legacy of creativity, resilience, and community that's been inspiring artists for over five decades.</p>
+      </div>
+      <div class="hero-image">
+        <img src="attached_assets/LenzArts-Exterior-Apr2024-Judi-600px_1751602104665.jpg" alt="Lenz Arts storefront - a family legacy since 1968" loading="lazy">
+      </div>
+    </div>
+    
+    <section class="story-section">
+      <h2>A Little History</h2>
+      <p>It all started with two artists, a shared dream, and a leap of faith.</p>
+      
+      <p>Back in college, Andy and Cynthia Lenz met through their love of art, fell in love with each other, and eventually got married. With art degrees in hand, they moved to the coastal town of Santa Cruz—a place close to Cynthia's family and full of creative energy.</p>
+      
+      <p>While Andy was pursuing his Master's in Art, he ran into a problem: it was tough to find the quality art supplies he needed. Instead of waiting for a solution, he and Cynthia decided to create one. On <strong>August 1, 1968</strong>, they took a bold leap and opened Lenz Arts—first from their apartment, and a few months later, in a tiny 900-square-foot storefront (with a loft!) on Pacific Avenue, right at the edge of the old Pacific Garden Mall.</p>
+      
+      <div class="historical-photos">
+        <div class="photo-item">
+          <img src="attached_assets/at_night150_1751613224394.jpg" alt="142 River Street over four decades ago" />
+          <p class="photo-caption">142 River Street, over four decades ago.</p>
+        </div>
+        <div class="photo-item">
+          <img src="attached_assets/lenz70s150_1751613224395.jpg" alt="Andy, Cynthia and Andrew Lenz in the early 1970s" />
+          <p class="photo-caption">Andy, Cynthia and Andrew Lenz in the early 1970s</p>
+        </div>
+        <div class="photo-item">
+          <img src="attached_assets/CynthiaAndrewAndy-2023-288px_1751613557096.jpg" alt="Cynthia, Andrew, and Andy in 2023" />
+          <p class="photo-caption">Cynthia, Andrew, and Andy in 2023.</p>
+        </div>
+      </div>
+      
+      <p>As the local art scene blossomed, so did the store. On <strong>July 6, 1972</strong>, Lenz Arts moved into its current home at 142 River Street, a spacious 10,000-square-foot building that once served as a community cold-storage facility—perfect for stocking even more supplies to fuel artists' imaginations.</p>
+      
+      <p>In <strong>1976</strong>, Lenz Arts officially became incorporated, and the family business continued to grow—literally. In <strong>1979</strong>, a young Andrew Jr., not yet a teen, cut his first picture framing mat under the guidance of his uncle Jerry, the head framer at the time.</p>
+      
+      <p>Andrew Jr. later graduated from UCSC and took on the role of store manager in <strong>1989</strong>. A true materials enthusiast, he's spent decades geeking out with paint manufacturers, chemists, and even researchers from the Smithsonian to answer the most niche (and fascinating!) questions from customers and fellow artists.</p>
+      
+      <p>In <strong>1991</strong>, the Lenz family added a warehouse to support their ever-expanding frame inventory, which freed up even more floor space in the store—because, really, who doesn't want room for more art supplies?</p>
+      
+      <p>Today, Lenz Arts remains proudly family-run. Andy officially retired in <strong>2016</strong>, and Cynthia gradually stepped back around the same time. Now, Andrew Jr. runs the day-to-day operations alongside his brother Matthew and a passionate crew of nearly two dozen artists and creatives.</p>
+      
+      <p>That same year, Andy and Cynthia were honored in Houston, Texas with the <strong>International Art Materials Association's Lifetime Achievement Award</strong>—a fitting tribute to their dedication, creativity, and impact on the fine art materials world.</p>
+      
+      <p style="text-align: center; font-style: italic; margin: 2rem 0; padding: 1.5rem; background: rgba(106, 13, 173, 0.05); border-radius: 12px;">
+        <strong>From our family to yours, thank you for making Lenz Arts a part of your creative life.</strong><br><br>
+        We're here to help artists of all kinds make, imagine, and explore—just like we've done since day one.
+      </p>
+    </section>
+
+    <section class="news-section">
+      <h2>Lenz Arts in the News</h2>
+      <p class="section-intro">Stories of resilience, recognition, and creative community.</p>
+      <p>For over five decades, Lenz Arts has been part of the Santa Cruz story. Below are some moments—both challenging and celebratory—that found their way into the headlines.</p>
+
+      <div class="news-category">
+        <h3>Rising from the Ashes (2002)</h3>
+        <p>In March 2002, a two-alarm fire caused significant damage to our building. The fire started underneath the store and spread into the walls. Despite having no fire insurance, we were back up and running just 12 days later, thanks to long hours, a determined crew, and overwhelming community support.</p>
+        
+        <div class="news-articles">
+          <div class="news-item">
+            <h4>Lenz Arts damaged by fire</h4>
+            <p class="news-meta">Santa Cruz Sentinel – March 17, 2002</p>
+            <p>A 34-year-old business in downtown Santa Cruz faces serious fire damage.<br>
+            <em>By Jeanene Harlick</em></p>
+            <a href="2002Sentinel-March17-fire.html" class="cta-button">Read More</a>
+          </div>
+          
+          <div class="news-item">
+            <h4>Fire-damaged Lenz may reopen next week</h4>
+            <p class="news-meta">Santa Cruz Sentinel – March 20, 2002</p>
+            <p>Investigators find evidence of camping beneath the store—exact cause remains unclear.<br>
+            <em>By Mike De Give</em></p>
+            <a href="2002Sentinel-March20-fire.html" class="cta-button">Read More</a>
+          </div>
+          
+          <div class="news-item">
+            <h4>Resiliency keeps Lenz Arts tradition alive after fire</h4>
+            <p class="news-meta">Santa Cruz Sentinel – April 8, 2007</p>
+            <p>Five years later, a follow-up on how the Lenz family turned hardship into growth.<br>
+            <em>By Jondi Gumz</em></p>
+            <a href="2007Sentinel-April8-fire.html" class="cta-button">Read More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="news-category">
+        <h3>Celebrating Milestones</h3>
+        <div class="news-articles">
+          <div class="news-item">
+            <h4>Lenz Arts Nears 45th Birthday</h4>
+            <p class="news-meta">Santa Cruz Sentinel – July 26, 2013</p>
+            <p>Celebrating 45 years in Santa Cruz with free food, face painting, and art-filled fun.<br>
+            <em>By Luke Barnes</em></p>
+            <a href="2013Sentinel-July26-45Anniversary.html" class="cta-button">Read More</a>
+          </div>
+          
+          <div class="news-item">
+            <h4>Editorial, Hits and Misses (Anniversary)</h4>
+            <p class="news-meta">Santa Cruz Sentinel – July 29, 2013</p>
+            <p>Looking back at 45 years of creativity, family, and small business perseverance.<br>
+            <em>By the Sentinel Editorial Board</em></p>
+            <a href="2013Sentinel-July29-EditorialLenz.html" class="cta-button">Read More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="news-category">
+        <h3>Honors & Recognition</h3>
+        <div class="news-articles">
+          <div class="news-item">
+            <h4>Lifetime Achievement Award</h4>
+            <p class="news-meta">Santa Cruz Sentinel – March 19, 2016</p>
+            <p>Andy and Cynthia Lenz were honored by the International Art Materials Association for their lasting impact on the art supply world.<br>
+            <em>By Justine DaCosta</em></p>
+            <a href="2016Sentinel-March18-LifetimeAward.html" class="cta-button">Read More</a>
+            <a href="https://www.youtube.com/watch?v=lV6Qmpe7kR0" target="_blank" rel="noopener noreferrer" class="cta-button secondary">Watch Video</a>
+          </div>
+          
+          <div class="news-item">
+            <h4>Labor of Love</h4>
+            <p class="news-meta">Good Times – April 20, 2016</p>
+            <p>A heartfelt feature on the couple behind Lenz Arts and the passion that built a community.<br>
+            <em>By Christina Waters</em></p>
+            <a href="https://www.goodtimes.sc/labor-of-love-3/" target="_blank" rel="noopener noreferrer" class="cta-button">Read More</a>
+          </div>
+          
+
+        </div>
+      </div>
+
+      <div class="news-category">
+        <h3>Artist Shout-Out</h3>
+        <div class="news-articles">
+          <div class="news-item">
+            <h4>Woodcut artist Tom Killion celebrates Mt. Tamalpais</h4>
+            <p class="news-meta">Santa Cruz Sentinel – May 14, 2009</p>
+            <p>Bay Area woodcut artist Tom Killion gives a nod to Lenz Arts in a piece remembering his artistic journey.<br>
+            <em>By Chris Watson</em></p>
+            <a href="2009Sentinel-May14-Killion.html" class="cta-button">Read More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="news-category">
+        <h3>More Stories and Photos</h3>
+        <p>Explore our journey through the years on our <a href="https://www.facebook.com/lenzarts" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: none; font-weight: 600;">Facebook page</a>. You don't need an account to browse, but if you do have one, feel free to follow us and share your Lenz Arts memories.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div style="text-align: center;">
+      <div style="margin-bottom: 1rem;">
+        <a href="https://lenzarts.us5.list-manage.com/subscribe?u=0ea02606e000e69dd6d15a1f1&id=d15d10c33e" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: none; font-weight: 500; font-size: 0.9rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 1rem; border-radius: 20px; display: inline-block; transition: all 0.3s ease; border: 2px solid rgba(255, 255, 255, 0.3);" onmouseover="this.style.background='rgba(255, 255, 255, 0.3)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.2)'; this.style.transform='translateY(0)'">Sign up for our Email Newsletter!</a>
+      </div>
+      
+      <div style="margin-bottom: 1rem;">
+        <a href="/" style="color: white; text-decoration: none; margin: 0 0.75rem;">Home</a> |
+        <a href="art-materials.html" style="color: white; text-decoration: none; margin: 0 0.75rem;">Art Materials</a> |
+        <a href="framing.html" style="color: white; text-decoration: none; margin: 0 0.75rem;">Custom Framing</a> |
+        <a href="demos.html" style="color: white; text-decoration: none; margin: 0 0.75rem;">Demos</a> |
+        <a href="gift-cards.html" style="color: white; text-decoration: none; margin: 0 0.75rem;">Gift Cards</a> |
+        <a href="history.html" style="color: white; text-decoration: none; margin: 0 0.75rem;">Our Story</a> |
+        <a href="contact.html" style="color: white; text-decoration: none; margin: 0 0.75rem;">Contact Us</a>
+      </div>
+    <p>&copy;1999-2025 Lenz Arts, Inc. | <a href="legal.html" style="color: white; text-decoration: none;">All Rights Reserved</a> | <a href="privacy.html" style="color: white; text-decoration: none;">Privacy Statement</a><br>
+    <em>Lenz Arts • <a href="https://www.google.com/maps/place/142+River+St,+Santa+Cruz,+CA+95060" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: none;">142 River Street, Santa Cruz, CA 95060</a> • (831) 281-7637</em></p>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <script>
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (event) => {
+      if (!hamburger.contains(event.target) && !mobileMenu.contains(event.target)) {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+      }
+    });
+
+    // Theme toggle functionality
+    const toggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+    const toggleText = toggleBtn.querySelector('span:first-child');
+
+    // Load theme from localStorage or default to light
+    if(localStorage.getItem('theme') === 'dark') {
+      body.setAttribute('data-theme', 'dark');
+      toggleText.textContent = 'Light Mode';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      const currentTheme = body.getAttribute('data-theme');
+      if(currentTheme === 'dark') {
+        body.removeAttribute('data-theme');
+        toggleText.textContent = 'Dark Mode';
+        localStorage.setItem('theme', 'light');
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        toggleText.textContent = 'Light Mode';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+
+    // Back to top functionality
+    const backToTopButton = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('show');
+      } else {
+        backToTopButton.classList.remove('show');
+      }
+    });
+
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+</body>
+</html>

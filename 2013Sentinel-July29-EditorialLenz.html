@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editorial: Lenz Arts in Focus - Santa Cruz Sentinel (July 29, 2013)</title>
+  
+  <style>
+    :root {
+      --primary-color: #01a0c6;
+      --accent-color: #6A0DAD;
+      --text-color: #333;
+      --bg-color: #f9f7f1;
+      --card-bg: white;
+      --border-color: #e0e0e0;
+      --shadow: 0 2px 10px rgba(0,0,0,0.1);
+      --link-color: var(--primary-color);
+      --link-hover: var(--accent-color);
+      --editorial-color: #c41e3a;
+    }
+
+    [data-theme="dark"] {
+      --text-color: #e0e0e0;
+      --bg-color: #121212;
+      --card-bg: #1e1e1e;
+      --border-color: #333;
+      --shadow: 0 2px 10px rgba(0,0,0,0.3);
+      --link-color: #4dd0e1;
+      --link-hover: #ba68c8;
+      --editorial-color: #ff6b8a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+      transition: all 0.3s ease;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero .publication {
+      font-size: 0.9rem;
+      color: var(--accent-color);
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .hero .editorial-badge {
+      display: inline-block;
+      background: var(--editorial-color);
+      color: white;
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text-color);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .hero .date {
+      font-size: 1rem;
+      color: var(--primary-color);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .hero .author {
+      font-size: 0.9rem;
+      color: var(--text-color);
+      font-style: italic;
+      opacity: 0.8;
+    }
+
+    /* Article Content */
+    .article-content {
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      line-height: 1.8;
+    }
+
+    .article-content p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    .article-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Editorial Sections */
+    .editorial-section {
+      margin: 2.5rem 0;
+      padding: 2rem;
+      background: var(--bg-color);
+      border-radius: 12px;
+      border-left: 4px solid var(--editorial-color);
+    }
+
+    .section-header {
+      background: var(--editorial-color);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1.5rem;
+      display: inline-block;
+    }
+
+    .editorial-item {
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+    }
+
+    .editorial-item:not(:last-child) {
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .editorial-item h4 {
+      color: var(--accent-color);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Lenz Arts Focus - Special styling */
+    .lenz-focus {
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      color: white;
+      padding: 2.5rem;
+      border-radius: 12px;
+      margin: 2.5rem 0;
+      box-shadow: var(--shadow);
+    }
+
+    .lenz-focus h4 {
+      color: white;
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .lenz-focus p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+    }
+
+    /* Quote Styling */
+    .quote {
+      font-style: italic;
+      padding: 1.5rem;
+      background: rgba(106, 13, 173, 0.1);
+      border-left: 4px solid var(--accent-color);
+      margin: 1.5rem 0;
+      color: var(--text-color);
+      border-radius: 0 8px 8px 0;
+    }
+
+    /* Navigation */
+    .back-nav {
+      margin-bottom: 2rem;
+    }
+
+    .back-nav a {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.75rem 1.5rem;
+      background: var(--accent-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .back-nav a:hover {
+      background: var(--primary-color);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(106, 13, 173, 0.3);
+    }
+
+    .back-nav a::before {
+      content: "←";
+      margin-right: 0.5rem;
+    }
+
+    /* Footer Note */
+    .footer-note {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: var(--bg-color);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      text-align: center;
+      font-style: italic;
+      opacity: 0.8;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      font-size: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      box-shadow: 0 4px 15px rgba(106, 13, 173, 0.3);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    .back-to-top:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(106, 13, 173, 0.4);
+    }
+    .back-to-top.show {
+      display: flex;
+    }
+    [data-theme="dark"] .back-to-top {
+      background: #8A3FC7;
+      box-shadow: 0 4px 15px rgba(138, 63, 199, 0.4);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .back-to-top {
+        bottom: 20px !important;
+        right: 15px !important;
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 16px !important;
+      }
+      .container {
+        padding: 1rem;
+      }
+
+      .hero {
+        padding: 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: 24px;
+      }
+
+      .article-content {
+        padding: 1.5rem;
+      }
+
+      .article-content p {
+        font-size: 1rem;
+      }
+
+      .editorial-section {
+        padding: 1.5rem;
+      }
+
+      .lenz-focus {
+        padding: 1.5rem;
+      }
+
+      .theme-toggle {
+        top: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light theme">🌙</button>
+
+  <div class="container">
+    <div class="back-nav">
+      <a href="history.html">Back to Our Story</a>
+    </div>
+
+    <div class="hero">
+      <div class="publication">Santa Cruz Sentinel</div>
+      <div class="editorial-badge">Editorial</div>
+      <h1>Hits and Misses: Wharf to Wharf a community winner</h1>
+      <div class="date">July 29, 2013</div>
+      <div class="author">By Sentinel Editorial Board, Santa Cruz Sentinel</div>
+    </div>
+
+    <div class="editorial-section">
+      <div class="section-header">HITS</div>
+      
+      <div class="editorial-item">
+        <h4>Winning Combination</h4>
+        <p>Let's just say 20,000 runners can't be wrong. Sunday's annual Wharf to Wharf race from Santa Cruz to Capitola demonstrated once again what's so special about the annual event: a scenic setting (the overcast skies might have ruined your beach day but they were great for participants), a festive atmosphere (hope you like music as a motivator) and a great cause.</p>
+        
+        <p>The road race -- this year was the 41st installment -- is a fundraiser for local schools, and this year should bring in about the same as last, roughly $400,000. This year saw new starting procedures, with elite racers leaving first, followed by runners corralled off by estimated teams starting in spaced intervals on their heels, launched by foghorn blasts.</p>
+        
+        <p>The corrals were designed to keep unregistered runners from hopping in, and the start did seem much less crowded than past years, and hence much safer. Well done.</p>
+      </div>
+
+      <div class="lenz-focus">
+        <h4>Lenz Arts in FOCUS</h4>
+        <p>Remember what you were doing in 1968? Well, Andy Lenz and wife Cynthia were figuring out how to launch an arts-supply business. Forty-five years later, it's safe to say Lenz Arts in Santa Cruz got it right.</p>
+        
+        <p>The couple and their son Andrew marked the occasion with a celebration this past weekend. With constantly changing technology and trends, not to mention up-and-down business cycles, such longevity is worth noting.</p>
+        
+        <p>The secret to their success? A passion for art, product knowledge and helping customers.</p>
+        
+        <div class="quote" style="color: white; font-weight: bold; background: var(--accent-color); padding: 1.5rem; border-radius: 8px; border-left: none;">
+          "If you take care of the customer it doesn't matter who the competition is," said Andrew Lenz.
+        </div>
+        
+        <p>Good advice for all merchants.</p>
+      </div>
+    </div>
+
+    <div class="editorial-section">
+      <div class="section-header">MISSES</div>
+      
+      <div class="editorial-item">
+        <h4>Getting Sauced</h4>
+        <p>It's hard to second-guess the Santa Cruz City Council's decision to deny a request by South Beach Pizza Co. to serve food and alcohol an extra hour, until 1 a.m. The city has been rapped on its commitment to public safety, and police have said that increasing operating hours for outlets that offer booze will tax an already overburdened department.</p>
+        
+        <p>Police have long said the high number of alcohol retailers in the city contributes to assaults and other late-night crime. But it seems suspect that the only member of the public to speak out against the expanded hours was Kris Reyes, a representative of the Santa Cruz Seaside Co., which owns the booze-serving Boardwalk Bowl and Pizza Patio, a direct competitor of South Beach and its neighbor three doors down.</p>
+        
+        <p>And yes, the Pizza Patio stays open till 1 a.m. Friday and Saturday nights, serving among other things, pizza and beer. We'd hope that if the nearby La Bahia hotel and conference center is ever built, the Seaside Co. calls for a midnight closing time for the bar and restaurant there, too.</p>
+      </div>
+      
+      <div class="editorial-item">
+        <h4>Surf Riots</h4>
+        <p>Rioting surfers is a contradiction in terms, we'd say, but apparently SoCal surfers (and surf fans) are a different breed. Huntington Beach, home of the infamous 1986 Op Pro contest riot that resulted in $250,000 in damage, found itself in the eye of the storm again Sunday.</p>
+        
+        <p>A fight broke out following the U.S. Open of Surfing, leading to a two-hour confrontation between authorities and rioters. Street signs were torn down, store windows smashed and portable toilets tumbled. Police apparently launched tear gas and bean-bag projectiles to disperse the crowd.</p>
+        
+        <p>Things tend to be a little quieter here after contests. A visit to the real Surf City might be in order for those down south to get a handle on the right way to hold a contest. On second thought ...</p>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      <p><em>[Santa Cruz Sentinel article republished by permission.]</em></p>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const currentTheme = body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      body.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      // Update button icon
+      const button = document.querySelector('.theme-toggle');
+      button.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+    }
+
+    // Initialize theme
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.body.setAttribute('data-theme', savedTheme);
+      
+      const button = document.querySelector('.theme-toggle');
+      button.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+    });
+
+    // Back to top functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const backToTopButton = document.getElementById('backToTop');
+      
+      if (backToTopButton) {
+        window.addEventListener('scroll', () => {
+          if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('show');
+          } else {
+            backToTopButton.classList.remove('show');
+          }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+    });
+  </script>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <!-- Simple Footer -->
+  <footer style="background-color: #01a0c6; padding: 2rem 0; margin-top: 3rem; border-top: 1px solid #ddd; text-align: center; color: white; font-size: 0.9rem; line-height: 1.6;">
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 1rem;">
+      <p style="margin: 0 0 0.5rem 0;">©1999-2025 Lenz Arts, Inc. | All Rights Reserved | <a href="/privacy.html" style="color: white; text-decoration: underline;">Privacy Statement</a></p>
+      <p style="margin: 0;">Lenz Arts • 142 River Street, Santa Cruz, CA 95060 • (831) 281-7637</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lenz Arts - Fine Art Materials & Custom Framing | Santa Cruz, CA</title>
+  <meta name="description" content="Lenz Arts has been serving Santa Cruz artists since 1968 with premium art supplies, custom framing, and expert knowledge. Visit our 10,000 sq ft showroom at 142 River Street.">
+  <link rel="icon" type="image/png" href="attached_assets/LENZarts_logo_1751534733182.png">
+  <style>
+    /* CSS Variables for light and dark themes */
+    :root {
+      --bg-color: #f9f7f1;
+      --text-color: #3a3a3a;
+      --heading-color: #2c2c2c;
+      --accent-color: #6A0DAD;
+      --link-color: #00A3E0;
+      --link-hover: #0082B8;
+      --box-shadow: rgba(106, 13, 173, 0.15);
+      --iframe-shadow: rgba(0, 163, 224, 0.2);
+      --nav-bg: rgba(249, 247, 241, 0.95);
+      --hero-gradient: linear-gradient(135deg, #01a0c6, #6A0DAD);
+    }
+    [data-theme="dark"] {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --heading-color: #f1f1f1;
+      --accent-color: #8A3FC7;
+      --link-color: #33B7E8;
+      --link-hover: #5BC4ED;
+      --box-shadow: rgba(138, 63, 199, 0.4);
+      --iframe-shadow: rgba(51, 183, 232, 0.3);
+      --nav-bg: rgba(18, 18, 18, 0.95);
+      --hero-gradient: linear-gradient(135deg, #01a0c6, #6A0DAD);
+    }
+
+    /* Reset & basics */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      padding-top: 80px;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      box-shadow: 0 2px 10px var(--box-shadow);
+      transition: all 0.4s ease;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color 0.4s ease;
+      padding: 20px 0.5rem 0.5rem 0.5rem;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: clamp(1rem, 3vw, 2.5rem);
+    }
+    .nav-links a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.4s ease;
+      position: relative;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent-color);
+    }
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--accent-color);
+    }
+
+    /* Mobile Navigation */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      padding: 8px;
+      border-radius: 6px;
+      background: rgba(106, 13, 173, 0.1);
+      transition: all 0.3s ease;
+      min-width: 44px;
+      min-height: 44px;
+      justify-content: center;
+      align-items: center;
+    }
+    .hamburger:hover {
+      background: rgba(106, 13, 173, 0.2);
+      transform: scale(1.05);
+    }
+    .hamburger span {
+      width: 28px;
+      height: 3px;
+      background: var(--text-color);
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(8px, -8px);
+    }
+    .mobile-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--nav-bg);
+      backdrop-filter: blur(15px);
+      display: none;
+      flex-direction: column;
+      padding: 0.75rem 0;
+      box-shadow: 0 8px 32px var(--box-shadow);
+      border-radius: 0 0 12px 12px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+    .mobile-menu.active {
+      display: flex;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    .mobile-menu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .mobile-menu li {
+      padding: 0.75rem 2rem;
+      border-bottom: 1px solid rgba(106, 13, 173, 0.1);
+    }
+    .mobile-menu li:last-child {
+      border-bottom: none;
+    }
+    .mobile-menu a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      display: block;
+      padding: 0.25rem 0;
+    }
+    .mobile-menu a:hover,
+    .mobile-menu a.active {
+      color: var(--accent-color);
+      transform: translateX(8px);
+    }
+    .theme-toggle-mobile {
+      padding: 0.75rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      color: var(--text-color);
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      border-top: 1px solid rgba(106, 13, 173, 0.2);
+      margin-top: 0.25rem;
+    }
+    .theme-toggle-mobile:hover {
+      color: var(--accent-color);
+      background: rgba(106, 13, 173, 0.05);
+    }
+
+    @media (max-width: 1024px) {
+      .nav-links {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .nav-container {
+        position: relative;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        padding: 0 1rem;
+      }
+      .hamburger {
+        margin-right: 0.5rem;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(106, 13, 173, 0.65), rgba(1, 160, 198, 0.65)), url('attached_assets/Liquitex-Aisle_1751601703941.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      color: white;
+      padding: clamp(4rem, 8vh, 8rem) clamp(1rem, 4vw, 3rem) clamp(3rem, 6vh, 6rem);
+      text-align: center;
+      position: relative;
+      min-height: clamp(500px, 60vh, 700px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+
+    /* Mobile-specific adjustments */
+    @media (max-width: 768px) {
+      /* Hero mobile optimization */
+      .hero {
+        background-attachment: scroll;
+        background-size: cover;
+        background-position: center center;
+        min-height: clamp(400px, 50vh, 500px);
+        padding: clamp(2rem, 6vh, 4rem) clamp(1rem, 4vw, 2rem) clamp(2rem, 5vh, 3rem);
+      }
+      .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      .hero p {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+      }
+      
+
+      
+      /* Mobile button improvements */
+      .cta-buttons {
+        gap: 1rem;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2rem;
+      }
+      .cta-button {
+        width: 100%;
+        max-width: 300px;
+        padding: 1.1rem 2rem;
+        font-size: 1.15rem;
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      /* Small mobile hero optimization */
+      .hero {
+        min-height: clamp(350px, 45vh, 450px);
+        padding: clamp(1.5rem, 5vh, 3rem) clamp(0.75rem, 3vw, 1.5rem) clamp(1.5rem, 4vh, 2.5rem);
+        background-position: center 30%;
+      }
+      .hero h1 {
+        font-size: 2rem;
+        margin-bottom: 0.75rem;
+      }
+      .hero p {
+        font-size: 1rem;
+        margin-bottom: 1.25rem;
+      }
+      
+
+      
+      /* Small mobile button adjustments */
+      .cta-button {
+        max-width: 280px;
+        padding: 1rem 1.8rem;
+        font-size: 1.1rem;
+        min-height: 48px;
+      }
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      margin-bottom: clamp(0.5rem, 2vh, 1.5rem);
+      font-weight: 700;
+      color: white;
+      line-height: 1.2;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero p {
+      font-size: clamp(1rem, 3vw, 1.4rem);
+      margin-bottom: clamp(1.5rem, 4vh, 3rem);
+      opacity: 0.95;
+      line-height: 1.4;
+      max-width: 60ch;
+      margin-left: auto;
+      margin-right: auto;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+      text-align: center;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: clamp(0.75rem, 2vw, 1.5rem);
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: clamp(1.5rem, 4vh, 2.5rem);
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: white;
+      color: var(--accent-color);
+      padding: clamp(1rem, 2.5vw, 1.4rem) clamp(2rem, 4vw, 2.8rem);
+      border-radius: clamp(30px, 5vw, 50px);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      white-space: nowrap;
+      min-width: clamp(160px, 35vw, 200px);
+      text-align: center;
+    }
+
+    .cta-secondary {
+      background: #01a0c6;
+      color: white;
+      box-shadow: 0 4px 15px rgba(1, 160, 198, 0.3);
+    }
+    .cta-button:hover {
+      background: #6A0DAD;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(106, 13, 173, 0.4);
+    }
+
+    .cta-secondary:hover {
+      background: #0088B3;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(1, 160, 198, 0.4);
+    }
+
+    /* Main Content */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    /* Features Grid */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 4rem 0;
+    }
+    .feature {
+      background: var(--bg-color);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px var(--box-shadow);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(106, 13, 173, 0.1);
+    }
+    .feature:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px var(--box-shadow);
+    }
+    .feature h3 {
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+
+    /* Stats Section */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin: 4rem 0;
+      text-align: center;
+    }
+    .stat {
+      padding: 2rem;
+    }
+    .stat-number {
+      font-size: 3rem;
+      font-weight: bold;
+      color: var(--accent-color);
+      display: block;
+    }
+    .stat-label {
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+      opacity: 0.8;
+    }
+
+    /* Gift Card Promotion Section */
+    .gift-card-promotion {
+      background: #eeeeee;
+      padding: 5rem 2rem;
+      margin: 4rem 0;
+      text-align: center;
+      border-radius: 0;
+    }
+    [data-theme="dark"] .gift-card-promotion {
+      background: #2a2a2a;
+    }
+    .gift-card-promotion h2 {
+      font-size: 2.8rem;
+      margin-bottom: 2rem;
+      color: #333333;
+      font-weight: 600;
+    }
+    [data-theme="dark"] .gift-card-promotion h2 {
+      color: #ffffff;
+    }
+    .gift-card-promotion p {
+      font-size: 1.3rem;
+      margin-bottom: 3rem;
+      color: #555555;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+    [data-theme="dark"] .gift-card-promotion p {
+      color: #cccccc;
+    }
+    .gift-card-cta {
+      display: inline-block;
+      background: #6A0DAD;
+      color: white;
+      padding: 1.2rem 3rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(106, 13, 173, 0.3);
+    }
+    .gift-card-cta:hover {
+      background: #8A3FC7;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(106, 13, 173, 0.4);
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      box-shadow: 0 4px 15px var(--box-shadow);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    .back-to-top:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--box-shadow);
+    }
+    .back-to-top.show {
+      display: flex;
+    }
+    [data-theme="dark"] .back-to-top {
+      background: #8A3FC7;
+      box-shadow: 0 4px 15px rgba(138, 63, 199, 0.4);
+    }
+
+    /* Carousel Styles */
+    .carousel-container {
+      margin: 3rem auto;
+      padding: 0 2rem;
+      max-width: 1200px;
+    }
+    .carousel {
+      position: relative;
+      max-width: 100%;
+      margin: 0 auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px var(--box-shadow);
+    }
+    .carousel-track {
+      position: relative;
+      width: 100%;
+      height: 400px;
+    }
+    .carousel-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
+    }
+    .carousel-slide.active {
+      opacity: 1;
+    }
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .carousel-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    .carousel-caption h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.5rem;
+      color: white;
+    }
+    .carousel-caption p {
+      margin: 0;
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    /* Navigation Buttons */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(106, 13, 173, 0.8);
+      color: white;
+      border: none;
+      font-size: 2rem;
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 0;
+      z-index: 10;
+    }
+    .carousel-btn:hover {
+      background: var(--accent-color);
+      transform: translateY(-50%) scale(1.1);
+    }
+    .carousel-btn-prev {
+      left: 0;
+    }
+    .carousel-btn-next {
+      right: 0;
+    }
+
+    /* Indicators */
+    .carousel-indicators {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.5rem;
+      z-index: 10;
+    }
+    .indicator {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .indicator.active {
+      background: white;
+      transform: scale(1.2);
+    }
+    .indicator:hover {
+      background: rgba(255, 255, 255, 0.8);
+      transform: scale(1.1);
+    }
+
+    /* Dark theme adjustments */
+    [data-theme="dark"] .carousel {
+      box-shadow: 0 8px 25px rgba(138, 63, 199, 0.4);
+    }
+    [data-theme="dark"] .carousel-btn {
+      background: rgba(138, 63, 199, 0.8);
+    }
+    [data-theme="dark"] .carousel-btn:hover {
+      background: #8A3FC7;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #6A0DAD 0%, #01a0c6 100%);
+      color: white;
+      padding: 3rem 2rem 2rem;
+      margin-top: 4rem;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .hero p {
+        font-size: 1.1rem;
+      }
+      .features {
+        grid-template-columns: 1fr;
+      }
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .stat-number {
+        font-size: 2rem;
+      }
+      .carousel-container {
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+      .carousel-slide img {
+        height: 250px;
+      }
+      .carousel-caption {
+        padding: 1rem;
+      }
+      .carousel-caption h3 {
+        font-size: 1.2rem;
+      }
+      .carousel-caption p {
+        font-size: 0.9rem;
+      }
+      .carousel-btn {
+        font-size: 1.5rem;
+        padding: 0.75rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+      <a href="/" class="logo">
+        <img src="attached_assets/LENZarts_logo_1751534733182.png" alt="Lenz Arts" style="height: 50px; width: auto;">
+      </a>
+      <ul class="nav-links">
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="/art-materials">Art Materials</a></li>
+        <li><a href="/framing">Custom Framing</a></li>
+        <li><a href="/demos">Demos</a></li>
+        <li><a href="/gift-cards">Gift Cards</a></li>
+        <li><a href="/history">Our Story</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="mobile-menu" id="mobile-menu">
+        <ul>
+          <li><a href="/" class="active">Home</a></li>
+          <li><a href="/art-materials">Art Materials</a></li>
+          <li><a href="/framing">Custom Framing</a></li>
+          <li><a href="/demos">Demos</a></li>
+          <li><a href="/gift-cards">Gift Cards</a></li>
+          <li><a href="/history">Our Story</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+        </ul>
+        <div class="theme-toggle-mobile" id="theme-toggle">
+          <span>Dark Mode</span>
+          <span>🌙</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Welcome to Lenz Arts</h1>
+    <p>Santa Cruz's Premier Art Supply Store & Custom Framing Since 1968</p>
+    <div class="cta-buttons">
+      <a href="/art-materials" class="cta-button">Shop Art Materials</a>
+      <a href="/framing" class="cta-button cta-secondary">Custom Framing</a>
+      <a href="/buyers_guide" class="cta-button">Buyer's Guide</a>
+    </div>
+  </section>
+
+  <main>
+    <section class="features">
+      <div class="feature">
+        <a href="/art-materials" style="text-decoration: none; color: inherit;">
+          <h3>Premium Art Materials</h3>
+          <p>Professional-grade paints, brushes, papers, and canvases from the world's leading manufacturers. We stock everything from student supplies to museum-quality materials.</p>
+        </a>
+      </div>
+      <div class="feature">
+        <a href="/framing" style="text-decoration: none; color: inherit;">
+          <h3>Custom Framing</h3>
+          <p>Expert custom framing services with thousands of frame and mat combinations. We specialize in preserving and presenting your artwork with archival-quality materials.</p>
+        </a>
+      </div>
+      <div class="feature">
+        <h3>Expert Knowledge</h3>
+        <p>Our staff includes working artists with decades of experience. Get personalized recommendations and technical advice for any project or medium.</p>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stat">
+        <span class="stat-number">55+</span>
+        <span class="stat-label">Years Serving Artists</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">10,000</span>
+        <span class="stat-label">Square Foot Showroom</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">1000s</span>
+        <span class="stat-label">Products Available</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">3</span>
+        <span class="stat-label">Generations Family Owned</span>
+      </div>
+    </section>
+
+    <section class="gift-card-promotion">
+      <h2>Perfect for Every Occasion</h2>
+      <p>Birthdays, holidays, graduations, or just because - Lenz Arts gift cards are always appreciated by creative people.</p>
+      <a href="/gift-cards" class="gift-card-cta">Get Your Gift Card Today</a>
+    </section>
+  </main>
+
+  <footer>
+    <div style="text-align: center;">
+      <div style="margin-bottom: 1rem;">
+        <a href="https://lenzarts.us5.list-manage.com/subscribe?u=0ea02606e000e69dd6d15a1f1&id=d15d10c33e" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: none; font-weight: 500; font-size: 0.9rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 1rem; border-radius: 20px; display: inline-block; transition: all 0.3s ease; border: 2px solid rgba(255, 255, 255, 0.3);" onmouseover="this.style.background='rgba(255, 255, 255, 0.3)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.2)'; this.style.transform='translateY(0)'">Sign up for our Email Newsletter!</a>
+      </div>
+      
+      <div style="margin-bottom: 1rem;">
+        <a href="/" style="color: white; text-decoration: none; margin: 0 0.75rem;">Home</a> |
+        <a href="/art-materials" style="color: white; text-decoration: none; margin: 0 0.75rem;">Art Materials</a> |
+        <a href="/framing" style="color: white; text-decoration: none; margin: 0 0.75rem;">Custom Framing</a> |
+        <a href="/demos" style="color: white; text-decoration: none; margin: 0 0.75rem;">Demos</a> |
+        <a href="/gift-cards" style="color: white; text-decoration: none; margin: 0 0.75rem;">Gift Cards</a> |
+        <a href="/history" style="color: white; text-decoration: none; margin: 0 0.75rem;">Our Story</a> |
+        <a href="/contact" style="color: white; text-decoration: none; margin: 0 0.75rem;">Contact Us</a>
+      </div>
+
+      <p style="margin: 0;">&copy;1999-2025 Lenz Arts, Inc. | <a href="/legal" style="color: white; text-decoration: none;">All Rights Reserved</a> | <a href="/privacy" style="color: white; text-decoration: none;">Privacy Statement</a><br>
+      <em>Lenz Arts • <a href="https://www.google.com/maps/place/142+River+St,+Santa+Cruz,+CA+95060" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: none;">142 River Street, Santa Cruz, CA 95060</a> • (831) 281-7637</em></p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <script>
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (event) => {
+      if (!hamburger.contains(event.target) && !mobileMenu.contains(event.target)) {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+      }
+    });
+
+    // Theme toggle functionality
+    const toggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+    const toggleText = toggleBtn.querySelector('span:first-child');
+
+    // Load theme from localStorage or default to light
+    if(localStorage.getItem('theme') === 'dark') {
+      body.setAttribute('data-theme', 'dark');
+      toggleText.textContent = 'Light Mode';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      const currentTheme = body.getAttribute('data-theme');
+      if(currentTheme === 'dark') {
+        body.removeAttribute('data-theme');
+        toggleText.textContent = 'Dark Mode';
+        localStorage.setItem('theme', 'light');
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        toggleText.textContent = 'Light Mode';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+
+    // Back to top functionality
+    const backToTopButton = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('show');
+      } else {
+        backToTopButton.classList.remove('show');
+      }
+    });
+
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Enhanced Carousel functionality
+    class ImageCarousel {
+      constructor() {
+        this.currentSlide = 0;
+        this.slides = document.querySelectorAll('.carousel-slide');
+        this.indicators = document.querySelectorAll('.indicator');
+        this.prevBtn = document.getElementById('prevBtn');
+        this.nextBtn = document.getElementById('nextBtn');
+        this.autoPlayInterval = null;
+        this.isTransitioning = false;
+        
+        this.init();
+      }
+      
+      init() {
+        if (this.slides.length === 0) return;
+        
+        // Initialize first slide
+        this.showSlide(0);
+        
+        // Add event listeners
+        this.addEventListeners();
+        
+        // Start autoplay
+        this.startAutoPlay();
+      }
+      
+      addEventListeners() {
+        // Navigation buttons
+        if (this.prevBtn) {
+          this.prevBtn.addEventListener('click', () => this.prevSlide());
+        }
+        if (this.nextBtn) {
+          this.nextBtn.addEventListener('click', () => this.nextSlide());
+        }
+        
+        // Indicators
+        this.indicators.forEach((indicator, index) => {
+          indicator.addEventListener('click', () => this.goToSlide(index));
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowLeft') this.prevSlide();
+          if (e.key === 'ArrowRight') this.nextSlide();
+        });
+        
+        // Pause autoplay on hover
+        const carousel = document.querySelector('.carousel');
+        if (carousel) {
+          carousel.addEventListener('mouseenter', () => this.stopAutoPlay());
+          carousel.addEventListener('mouseleave', () => this.startAutoPlay());
+        }
+      }
+      
+      showSlide(index) {
+        if (this.isTransitioning || index < 0 || index >= this.slides.length) return;
+        
+        this.isTransitioning = true;
+        
+        // Update slides
+        this.slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === index);
+        });
+        
+        // Update indicators
+        this.indicators.forEach((indicator, i) => {
+          indicator.classList.toggle('active', i === index);
+        });
+        
+        this.currentSlide = index;
+        
+        // Reset transition flag after animation
+        setTimeout(() => {
+          this.isTransitioning = false;
+        }, 600);
+      }
+      
+      nextSlide() {
+        const nextIndex = (this.currentSlide + 1) % this.slides.length;
+        this.showSlide(nextIndex);
+      }
+      
+      prevSlide() {
+        const prevIndex = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+        this.showSlide(prevIndex);
+      }
+      
+      goToSlide(index) {
+        this.showSlide(index);
+      }
+      
+      startAutoPlay() {
+        this.stopAutoPlay(); // Clear any existing interval
+        if (this.slides.length > 1) {
+          this.autoPlayInterval = setInterval(() => this.nextSlide(), 5000);
+        }
+      }
+      
+      stopAutoPlay() {
+        if (this.autoPlayInterval) {
+          clearInterval(this.autoPlayInterval);
+          this.autoPlayInterval = null;
+        }
+      }
+    }
+    
+    // Initialize carousel
+    const carousel = new ImageCarousel();
+  </script>
+
+<!-- Client-side router for reliable navigation -->
+<script src="router.js"></script>
+
+</body>
+</html>

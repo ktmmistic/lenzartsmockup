@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fire-damaged Lenz may reopen next week - Santa Cruz Sentinel (March 20, 2002)</title>
+  
+  <style>
+    :root {
+      --primary-color: #01a0c6;
+      --accent-color: #6A0DAD;
+      --text-color: #333;
+      --bg-color: #f9f7f1;
+      --card-bg: white;
+      --border-color: #e0e0e0;
+      --shadow: 0 2px 10px rgba(0,0,0,0.1);
+      --link-color: var(--primary-color);
+      --link-hover: var(--accent-color);
+    }
+
+    [data-theme="dark"] {
+      --text-color: #e0e0e0;
+      --bg-color: #121212;
+      --card-bg: #1e1e1e;
+      --border-color: #333;
+      --shadow: 0 2px 10px rgba(0,0,0,0.3);
+      --link-color: #4dd0e1;
+      --link-hover: #ba68c8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+      transition: all 0.3s ease;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero .publication {
+      font-size: 0.9rem;
+      color: var(--accent-color);
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text-color);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .hero .date {
+      font-size: 1rem;
+      color: var(--primary-color);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .hero .author {
+      font-size: 0.9rem;
+      color: var(--text-color);
+      font-style: italic;
+      opacity: 0.8;
+    }
+
+    /* Article Content */
+    .article-content {
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      line-height: 1.8;
+    }
+
+    .article-content p {
+      margin-bottom: 1.5rem;
+      text-align: justify;
+    }
+
+    .article-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Photo sections */
+    .photo-section {
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: rgba(106, 13, 173, 0.05);
+      border-radius: 8px;
+      border-left: 4px solid var(--accent-color);
+    }
+
+    .photo-section h3 {
+      color: var(--accent-color);
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .photo-section p {
+      font-style: italic;
+      color: var(--text-color);
+      opacity: 0.8;
+      margin-bottom: 0;
+    }
+
+    /* Quotes */
+    .quote {
+      font-style: italic;
+      padding-left: 1rem;
+      border-left: 3px solid var(--primary-color);
+      margin: 1rem 0;
+      color: var(--text-color);
+    }
+
+    /* Footer note */
+    .footer-note {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: rgba(1, 160, 198, 0.1);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      border: 1px solid var(--border-color);
+    }
+
+    /* Back button */
+    .back-button {
+      display: inline-block;
+      margin-bottom: 2rem;
+      padding: 10px 20px;
+      background: var(--accent-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(106, 13, 173, 0.2);
+    }
+
+    .back-button:hover {
+      background: var(--primary-color);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(106, 13, 173, 0.3);
+      text-decoration: none;
+      color: white;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      box-shadow: 0 4px 15px rgba(106, 13, 173, 0.3);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    .back-to-top:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(106, 13, 173, 0.4);
+    }
+    .back-to-top.show {
+      display: flex;
+    }
+    [data-theme="dark"] .back-to-top {
+      background: #8A3FC7;
+      box-shadow: 0 4px 15px rgba(138, 63, 199, 0.4);
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      font-size: 20px;
+      transition: all 0.3s ease;
+      z-index: 1001;
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .back-to-top {
+        bottom: 20px !important;
+        right: 15px !important;
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 16px !important;
+      }
+      .theme-toggle {
+        top: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+      }
+      .container {
+        padding: 1rem;
+      }
+
+      .hero {
+        padding: 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: 24px;
+      }
+
+      .article-content {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light theme">🌙</button>
+
+  <div class="container">
+    <a href="history.html" class="back-button">← Back to Our Story</a>
+    
+    <div class="hero">
+      <div class="publication">Santa Cruz Sentinel</div>
+      <h1>Fire-damaged Lenz may reopen next week</h1>
+      <div class="date">(March 20, 2002)</div>
+      <div class="author">MIKE DE GIVE - Sentinel staff writer</div>
+    </div>
+
+    <div class="article-content">
+      <p>Investigators found a one-burner stove and other evidence of camping beneath a burned section of Lenz Arts but haven't determined what role the items played in Saturday's fire.</p>
+
+      <div class="quote">
+        <p>"You can go almost anywhere in this town and find evidence of homeless camping," said Santa Cruz Deputy Fire Marshal Ray Zachau said. "It could have just been stored there."</p>
+      </div>
+
+      <p>The investigation also determined a gas meter near the blaze had failed, allowing natural gas to fuel the morning fire. But it's not clear whether the meter was damaged as a result of the fire or if the fire was caused by the broken meter, Zachau said.</p>
+
+      <p>The meter has been sent to Pacific Gas & Electric's labs for testing. The heat from the fire may have caused gaskets or nylon bushings to burn, causing the failure, Zachau said.</p>
+
+      <p>The fire caused an estimated $75,000 damage to the 80-year-old building, which was once a meat-packing company, plus another $5,000 in damaged supplies. Firefighters contained the fire to a small area despite hazards in the old building. The studs were coated in tar to prevent rot, and redwood bark was used as an insulation, Zachau said.</p>
+
+      <p>Most damage was to a section of the store where art books and canvases were sold. In the next room, turpentine and oil-based paints could have made matters worse, owner Andy Lenz Sr. said.</p>
+
+      <div class="quote">
+        <p>"We're happy everyone got out safely," Lenz said. "We're happy that it happened during the day."</p>
+      </div>
+
+      <p>No evidence points to arson, Zachau said, and nobody was injured.</p>
+
+      <p>Lenz is self-insured, a decision he made because of high premiums and deductibles, he said.</p>
+
+      <p>Andrew Lenz Jr. said the family hopes to have the store open as early as next Friday, March 29, though that depends on formal approval from the city.</p>
+
+      <p>A work crew has been cleaning up the mess since Sunday, and repairs are under way.</p>
+
+      <div class="photo-section">
+        <h3>Matthew Lenz cleaning up after fire</h3>
+        <img src="https://lenzarts.com/images/fire2002/2002Fire-MatthewCleaning.jpg" alt="Matthew Lenz helping clear the back room" style="width: 100%; max-width: 400px; height: auto; border-radius: 8px; margin: 1rem 0;">
+        <p>Matthew Lenz helping clear the back room which took the brunt of the fire damage. The floor was sawed through in long swaths to access the fire.<br>[Unpublished photo taken by Lenz Arts staff]</p>
+      </div>
+
+      <p>The younger Lenz himself spent a few hours Tuesday crawling under the building and scraping a few thousand square feet of charred wooden beams and floor boards down to good wood.</p>
+
+      <div class="quote">
+        <p>"It's arduous," he said. "My whole body hurts."</p>
+      </div>
+
+      <p>Other employees, meanwhile, have been processing pending orders for the custom-framing portion of the business.</p>
+
+      <p>The 14 people employed at Lenz are staying on the job, dusting ash from paint bottles and other merchandise.</p>
+
+      <div class="photo-section">
+        <h3>Hole in floor</h3>
+        <img src="https://lenzarts.com/images/fire2002/2002Fire-FloorHoleStretcherBars.jpg" alt="Hole in floor from firefighters accessing the fire" style="width: 100%; max-width: 400px; height: auto; border-radius: 8px; margin: 1rem 0;">
+        <p>The firefighters sawed through our floor in several places to gain access to the fire under the building. This is between the rolls of canvas and the stretcher bars. It was a bit messy, but considering everything, they managed to keep damage to merchandise to a minimum.<br>[Unpublished photo taken by Lenz Arts staff]</p>
+      </div>
+
+      <div class="footer-note">
+        <p>Santa Cruz Sentinel article republished by permission.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Simple Footer -->
+  <footer style="background-color: #01a0c6; padding: 2rem 0; margin-top: 3rem; border-top: 1px solid #ddd; text-align: center; color: white; font-size: 0.9rem; line-height: 1.6;">
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 1rem;">
+      <p style="margin: 0 0 0.5rem 0;">©1999-2025 Lenz Arts, Inc. | All Rights Reserved | <a href="/privacy.html" style="color: white; text-decoration: underline;">Privacy Statement</a></p>
+      <p style="margin: 0;">Lenz Arts • 142 River Street, Santa Cruz, CA 95060 • (831) 281-7637</p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <script>
+    // Back to top functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const backToTopButton = document.getElementById('backToTop');
+      
+      if (backToTopButton) {
+        window.addEventListener('scroll', () => {
+          if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('show');
+          } else {
+            backToTopButton.classList.remove('show');
+          }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+    });
+
+    // Theme toggle functionality
+    function toggleTheme() {
+      const body = document.body;
+      const currentTheme = body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      if (newTheme === 'dark') {
+        body.setAttribute('data-theme', 'dark');
+      } else {
+        body.removeAttribute('data-theme');
+      }
+      
+      localStorage.setItem('theme', newTheme);
+      
+      // Update button icon
+      const button = document.querySelector('.theme-toggle');
+      button.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+    }
+
+    // Initialize theme
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.body.setAttribute('data-theme', savedTheme);
+      
+      const button = document.querySelector('.theme-toggle');
+      button.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A worldwide recognition for Lenz Arts owners - Santa Cruz Sentinel (March 18, 2016)</title>
+  
+  <style>
+    :root {
+      --primary-color: #01a0c6;
+      --accent-color: #6A0DAD;
+      --text-color: #333;
+      --bg-color: #f9f7f1;
+      --card-bg: white;
+      --border-color: #e0e0e0;
+      --shadow: 0 2px 10px rgba(0,0,0,0.1);
+      --link-color: var(--primary-color);
+      --link-hover: var(--accent-color);
+      --award-gold: #ffd700;
+    }
+
+    [data-theme="dark"] {
+      --text-color: #e0e0e0;
+      --bg-color: #121212;
+      --card-bg: #1e1e1e;
+      --border-color: #333;
+      --shadow: 0 2px 10px rgba(0,0,0,0.3);
+      --link-color: #4dd0e1;
+      --link-hover: #ba68c8;
+      --award-gold: #ffed4a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+      transition: all 0.3s ease;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero .publication {
+      font-size: 0.9rem;
+      color: var(--accent-color);
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .hero .award-badge {
+      display: inline-block;
+      background: var(--award-gold);
+      color: #333;
+      padding: 0.5rem 1.5rem;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text-color);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .hero .date {
+      font-size: 1rem;
+      color: var(--primary-color);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .hero .author {
+      font-size: 0.9rem;
+      color: var(--text-color);
+      font-style: italic;
+      opacity: 0.8;
+    }
+
+    /* Article Content */
+    .article-content {
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      line-height: 1.8;
+    }
+
+    .article-content p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    .article-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Award Highlight Box */
+    .award-highlight {
+      background: linear-gradient(135deg, var(--award-gold), #ffaa00);
+      color: #333;
+      padding: 2.5rem;
+      border-radius: 12px;
+      margin: 2.5rem 0;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+    }
+
+    .award-highlight h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .award-highlight p {
+      font-size: 1.2rem;
+      font-weight: 500;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    /* Quote Styling */
+    .quote {
+      font-style: italic;
+      padding-left: 1.5rem;
+      border-left: 4px solid var(--accent-color);
+      margin: 1.5rem 0;
+      color: var(--text-color);
+      opacity: 0.9;
+      background: rgba(106, 13, 173, 0.05);
+      padding: 1.5rem;
+      border-radius: 0 8px 8px 0;
+    }
+
+    /* Historical Context Box */
+    .context-box {
+      background: var(--bg-color);
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+      border-left: 4px solid var(--primary-color);
+    }
+
+    .context-box h4 {
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .context-box p {
+      margin-bottom: 1rem;
+    }
+
+    /* Photo Section */
+    .photo-section {
+      text-align: center;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .photo-section img {
+      max-width: 400px;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .photo-caption {
+      margin-top: 1rem;
+      font-style: italic;
+      color: var(--text-color);
+      opacity: 0.8;
+      font-size: 0.9rem;
+    }
+
+    /* Video CTA Box */
+    .video-cta {
+      background: var(--primary-color);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    .video-cta h4 {
+      color: white;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .video-cta a {
+      display: inline-block;
+      background: white;
+      color: var(--primary-color);
+      padding: 0.75rem 2rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .video-cta a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    /* Navigation */
+    .back-nav {
+      margin-bottom: 2rem;
+    }
+
+    .back-nav a {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.75rem 1.5rem;
+      background: var(--accent-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .back-nav a:hover {
+      background: var(--primary-color);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(106, 13, 173, 0.3);
+    }
+
+    .back-nav a::before {
+      content: "←";
+      margin-right: 0.5rem;
+    }
+
+    /* Footer Note */
+    .footer-note {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: var(--bg-color);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      text-align: center;
+      font-style: italic;
+      opacity: 0.8;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      font-size: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      box-shadow: 0 4px 15px rgba(106, 13, 173, 0.3);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    .back-to-top:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(106, 13, 173, 0.4);
+    }
+    .back-to-top.show {
+      display: flex;
+    }
+    [data-theme="dark"] .back-to-top {
+      background: #8A3FC7;
+      box-shadow: 0 4px 15px rgba(138, 63, 199, 0.4);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .back-to-top {
+        bottom: 20px !important;
+        right: 15px !important;
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 16px !important;
+      }
+      .container {
+        padding: 1rem;
+      }
+
+      .hero {
+        padding: 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: 24px;
+      }
+
+      .article-content {
+        padding: 1.5rem;
+      }
+
+      .article-content p {
+        font-size: 1rem;
+      }
+
+      .award-highlight {
+        padding: 1.5rem;
+      }
+
+      .award-highlight h3 {
+        font-size: 1.4rem;
+      }
+
+      .context-box {
+        padding: 1.5rem;
+      }
+
+      .video-cta {
+        padding: 1.5rem;
+      }
+
+      .theme-toggle {
+        top: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light theme">🌙</button>
+
+  <div class="container">
+    <div class="back-nav">
+      <a href="history.html">Back to Our Story</a>
+    </div>
+
+    <div class="hero">
+      <div class="publication">Santa Cruz Sentinel</div>
+      <div class="award-badge">Lifetime Achievement Award</div>
+      <h1>A worldwide recognition for Lenz Arts owners</h1>
+      <div class="date">March 18, 2016</div>
+      <div class="author">By Justine DaCosta and Santa Cruz Sentinel</div>
+    </div>
+
+    <div class="award-highlight">
+      <h3>2016 Lifetime Achievement Award</h3>
+      <p>International Art Materials Association</p>
+      <p>Awarded to Andy and Cynthia Lenz</p>
+    </div>
+
+    <div class="photo-section">
+      <img src="attached_assets/LifetimeAchievement2016_1751613658316.jpg" alt="Andy and Cynthia Lenz receiving the 2016 Lifetime Achievement Award" />
+      <div class="photo-caption">
+        Andy and Cynthia Lenz with their 2016 Lifetime Achievement Awards.
+      </div>
+    </div>
+
+    <div class="article-content">
+      <p>And the winners are: Andy and Cynthia Lenz, owners of Lenz Arts in Santa Cruz.</p>
+
+      <p>The pair were honored with the 2016 Lifetime Achievement Award by the International Art Materials Association at a March 5 ceremony at the Hyatt Regency in Houston. The award honors men and women who have made a significant impact on the fine art materials industry, according to the association.</p>
+
+      <p>About 250 members of the association traveled from all over the world, including Australia, Spain and Italy, to attend the event, which the recipients' son, Andrew Lenz, Jr., likened to the Academy Awards for the art materials world.</p>
+
+      <p>He and friend/artist materials sales rep Steve Gallisdorfer of Nevada City gave a presentation that included a spoken history of Lenz Arts and slides documenting the store's almost 50-year history.</p>
+
+      <div class="quote">
+        "A lot of people came up to my folks telling them, 'Well deserved,'" Lenz, Jr. wrote in an email. "There are others out there who are likely just as deserving, but that doesn't take away from the hard work my parents have put in taking care of the Santa Cruz community for decades."
+      </div>
+
+      <p>The Lifetime Achievement Award is no small recognition; past recipients include France's Dominic Sennelier, whose company made paint for the French impressionists, and Steve Pleune of Winsor & Newton in England.</p>
+
+      <div class="quote">
+        "When my parents got the phone call that they'd been voted to receive the award they didn't even know they'd been nominated," Lenz, Jr. wrote. "And they'd been nominated by a number of people, too. They were surprised to learn of the honor, and humbled."
+      </div>
+    </div>
+
+    <div class="context-box">
+      <h4>About the Award</h4>
+      <p>The International Art Materials Association's Lifetime Achievement Award recognizes individuals who have made significant contributions to the fine art materials industry over their careers.</p>
+      
+      <p>Past recipients represent some of the most prestigious names in art materials, including companies that have supplied materials to famous artists throughout history.</p>
+      
+      <p>The award ceremony brings together manufacturers, retailers, and industry professionals from around the globe to celebrate excellence in the art materials world.</p>
+    </div>
+
+    <div class="video-cta">
+      <h4>Watch the Award Presentation</h4>
+      <p>See Andy and Cynthia Lenz receive this prestigious recognition at the International Art Materials Association ceremony.</p>
+      <a href="https://www.youtube.com/watch?v=lV6Qmpe7kR0" target="_blank" rel="noopener noreferrer">Watch Video</a>
+    </div>
+
+    <div class="footer-note">
+      <p><em>[Santa Cruz Sentinel article republished by permission.]</em></p>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const currentTheme = body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      body.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      // Update button icon
+      const button = document.querySelector('.theme-toggle');
+      button.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+    }
+
+    // Initialize theme
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.body.setAttribute('data-theme', savedTheme);
+      
+      const button = document.querySelector('.theme-toggle');
+      button.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+    });
+
+    // Back to top functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const backToTopButton = document.getElementById('backToTop');
+      
+      if (backToTopButton) {
+        window.addEventListener('scroll', () => {
+          if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('show');
+          } else {
+            backToTopButton.classList.remove('show');
+          }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+    });
+  </script>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <!-- Simple Footer -->
+  <footer style="background-color: #01a0c6; padding: 2rem 0; margin-top: 3rem; border-top: 1px solid #ddd; text-align: center; color: white; font-size: 0.9rem; line-height: 1.6;">
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 1rem;">
+      <p style="margin: 0 0 0.5rem 0;">©1999-2025 Lenz Arts, Inc. | All Rights Reserved | <a href="/privacy.html" style="color: white; text-decoration: underline;">Privacy Statement</a></p>
+      <p style="margin: 0;">Lenz Arts • 142 River Street, Santa Cruz, CA 95060 • (831) 281-7637</p>
+    </div>
+  </footer>
+</body>
+</html>
